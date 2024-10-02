@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-import { NavbarComp } from "./components/navbar";
+import NavbarComp from "./components/navbar";
 
 export const metadata: Metadata = {
   title: "PeerShare",
@@ -16,11 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <NavbarComp navbarItems={[
-          { name: 'Server', href: '/server' },
-          { name: 'Client', href: '/client' },
-          { name: 'Docs', href: '/docs' }
-        ]} />
+        <NavbarComp />
         {children}
       </body>
     </html>

@@ -1,6 +1,5 @@
-import { NavbarComp } from "../components/navbar"
 
-export default function ServerLayout({
+export default function ClientLayout({
     children,
 }: {
     children: React.ReactNode

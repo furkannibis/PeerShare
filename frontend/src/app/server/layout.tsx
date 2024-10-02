@@ -1,4 +1,3 @@
-import { NavbarComp } from "../components/navbar";
 
 export default function ServerLayout({
     children,
@@ -8,6 +7,6 @@ export default function ServerLayout({
     return (
         <section>
             {children}
-        </section >
-    )
+        </section>
+    );
 }
