@@ -1,0 +1,6 @@
+{
+  "/(core)/server/page": "app/(core)/server/page.js",
+  "/(core)/page": "app/(core)/page.js",
+  "/(core)/client/page": "app/(core)/client/page.js",
+  "/(core)/documents/page": "app/(core)/documents/page.js"
+}
