@@ -48,6 +48,15 @@ def define_file_size(path, file):
 
 def is_conn_exists(connections: list, ip: str, port: int):
     for connection in connections:
-        if (ip, port) == connection[1]:
+        if (ip, port) == connection:
             return connection
     return False
+
+def change_connected_devices_type(conn_devices: list):
+    conn_dict = []
+    for device in conn_devices[1:]:
+        conn_dict.append({
+            'ip': device[1][0],
+            'port': device[1][1]
+        })
+    return conn_dict

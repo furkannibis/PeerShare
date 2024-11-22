@@ -14,3 +14,7 @@ class SendMessageAddr(BaseModel):
     ip: str
     port: int
     message: str
+
+class ConnectedDevice(BaseModel):
+    ip: str
+    port: int

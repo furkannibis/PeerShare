@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 
 from server.server_socket import Server
-from server.model import LANServerStartServer, SendMessageAddr, ShowFilesAddr
+from server.model import LANServerStartServer, SendMessageAddr, ShowFilesAddr, ConnectedDevice
 
 
 server_router = APIRouter()
@@ -38,6 +38,10 @@ async def start_listen():
 @server_router.post('/server/lan/send-message')
 async def send_msg(addr: SendMessageAddr):
     return lan_server.send_message(addr.ip, addr.port, addr.message)
+
+@server_router.post('/server/lan/connected-devices')
+async def conn_devices(addr: ConnectedDevice):
+    return lan_server.get_connected_devices(addr.ip, addr.port)
 
 @server_router.post('/server/wan/start-server')
 async def start_server_route(server_inf: LANServerStartServer):
