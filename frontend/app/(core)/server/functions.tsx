@@ -163,3 +163,43 @@ export async function lanServerSharedFiles(ip: string, port: number): Promise<la
     else
         return data as lanServerSharedFilesExceptionInterface
 }
+
+export interface lanServerConnectedDevicesContentsInterface {
+    ip: string
+    port: number
+}
+
+export interface lanServerConnectedDevicesInterface {
+    status: string
+    service_info: LanServiceInfo
+    server_binding: boolean
+    service_listening: boolean
+    connected_devices: lanServerConnectedDevicesContentsInterface
+}
+
+export interface lanServerConnectedDevicesExceptionInterface {
+    status: string
+    err_info: LanServiceExceptionInfo
+    service_info: LanServiceInfo
+    server_binding: boolean
+    server_listening: boolean
+}
+
+export async function lanServerConnectedDevices(ip: string, port: number): Promise<lanServerConnectedDevicesInterface | lanServerConnectedDevicesExceptionInterface> {
+    const response = await fetch("http://127.0.0.1:8000/server/lan/connected-devices", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ip, port }),
+    });
+    if (!response.ok) {
+        throw new Error('Failed to fetch server status');
+    }
+    const data = await response.json();
+    console.log(data)
+    if (data.status === 'success')
+        return data as lanServerConnectedDevicesInterface;
+    else
+        return data as lanServerConnectedDevicesExceptionInterface
+}
