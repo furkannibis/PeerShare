@@ -1,142 +1,147 @@
 import socket
-from os import listdir, getcwd
 import threading
+from os import listdir, getcwd
 
-from server.functions import get_server_lan_ip, get_server_wan_ip, get_server_port, define_file_size, define_file_type, is_conn_exists, change_connected_devices_type
-
+from server.functions import get_server_wan_ip, get_network_interfaces, get_network_interface, is_conn_exists, is_server, define_file_size, define_file_type, check_password
 from models.psMessage import PeerShareMessage, PeerShareException
 
 class Server:
-    def __init__(self, net_type: str):
-        if net_type == 'LAN':
-            self.ip = get_server_lan_ip()
-        elif net_type == 'WAN':
-            self.ip = get_server_wan_ip()
-        self.port = 0
+    def __init__(self):
+        self.password = None
+
+        self.public_ip = get_server_wan_ip()
+        self.network_interfaces = get_network_interfaces()
+        self.selected_network_interface = None
+
+        self.port = None
+        
         self.server_status = 'closed'
         self.binding = False
         self.listening = False
+        
+        self.connected_devices_addr = list()
         self.connected_devices = list()
 
+    def send_public_ip(self):
+        if not self.selected_network_interface:
+            return PeerShareMessage(status_code=200, status='successful', message_code='M003', message='The server\'s public IP has been obtained. The user is expected to define the network interface card.', public_ip=self.public_ip, ip=None, port=self.port, server_status=self.server_status)
+        return PeerShareMessage(status_code=200, status='successful', message_code='M004', message='The server\'s public IP has been obtained.', public_ip=self.public_ip, ip=self.selected_network_interface['ipv4'], port=self.port, server_status=self.server_status)
+    
+    def send_network_interfaces(self):
+        if not self.selected_network_interface:
+            return PeerShareMessage(status_code=200, status='successful', message_code='M001', message='The network interface cards defined on the system have been successfully identified. The user is expected to select one of them.', public_ip=self.public_ip, ip=None, port=self.port, server_status=self.server_status, network_interfaces=self.network_interfaces)
+        return PeerShareMessage(status_code=200, status='successful',message_code='M002', message='The network interface cards defined on the system have been successfully identified.', public_ip=self.public_ip, ip=self.selected_network_interface['ipv4'], port=self.port, server_status=self.server_status, network_interfaces=self.network_interfaces)
+    
     def check_server_status(self):
-        return PeerShareMessage('success', self.ip, self.port, self.server_status, server_binding=self.binding, server_listening=self.listening)
+        if not self.selected_network_interface:
+            return PeerShareMessage(status_code=200, status='successful', message_code='M000', message='Server information has been successfully delivered.', public_ip=self.public_ip, ip=None, port=self.port, server_status=self.server_status)
+        return PeerShareMessage(status_code=200, status='successful', message_code='M000', message='Server information has been successfully delivered.', public_ip=self.public_ip, ip=self.selected_network_interface['ipv4'], port=self.port, server_status=self.server_status)
     
     def create_server_socket(self):
         self.server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 10)
 
-    def start_server(self, port):
-        if not self.check_server_status()['server_binding']:
-            self.create_server_socket()
-            if 0 > port or port > 65535:
-                return PeerShareException('failed', '0x014', 'The server\'s port number can range from 1 to 65,535. Be careful not to use a port number that is already in use.', self.ip, self.port, self.server_status, server_binding=self.binding, server_listening=self.listening)
-            self.port = port
-            try:
-                self.server_socket.bind((self.ip, self.port))
-                self.connected_devices.append((self.ip, self.port))
-            except OSError:
-                self.stop_server()
-                return PeerShareException('failed', '0x015', 'The port you are trying to use is being used by the server. Please select another port.', self.ip, self.port, self.server_status, server_binding=self.binding, server_listening=self.listening)
-            self.server_status = 'binding'
-            self.binding = True
-            return PeerShareMessage('success', self.ip, self.port, self.server_status, message='The server has started binding for connection requests.', server_binding=self.binding, server_listening=self.listening)
-        elif self.check_server_status()['server_binding']:
-            return PeerShareException('failed', '0x001', 'The server is already binding for requests.', self.ip, self.port, self.server_status, server_binding=self.binding, server_listening=self.listening)
-    
+    def start_server(self, interface, port, password):
+            if not self.binding:
+                if password:
+                    self.password = password
+                
+                self.selected_network_interface = get_network_interface(inter_name=interface)
+                if not self.selected_network_interface:
+                    return PeerShareException(status_code=500, status='failed', err_code='E000', err_desc='The specified network interface card could not be detected on the system.', public_ip=self.public_ip, ip=None, port=self.port, server_status=self.server_status)
+                if 0 > port or port > 65535:
+                    return PeerShareException(status_code=400, status='failed', err_code='E002', err_desc='Please enter a valid port number (1-65535).', public_ip=self.public_ip, ip=None, port=self.port, server_status=self.server_status)
+                try:
+                    self.create_server_socket()
+                    self.port = port
+                    self.server_socket.bind((self.selected_network_interface['ipv4'], self.port))
+                    self.connected_devices_addr.append({'ip': self.selected_network_interface['ipv4'], 'port': self.port})
+                
+                    self.binding = True
+                    self.server_status = 'binding'
+                    
+                    return PeerShareMessage(status_code=200, status='successful', message_code='M007', message='The server\'s binding mode has been successfully enabled.', public_ip=self.public_ip, ip=self.selected_network_interface['ipv4'], port=self.port, server_status=self.server_status)
+                except OSError:
+                    self.stop_server()
+                    return PeerShareException(status_code=409, status='failed', err_code='E003', err_desc='The entered port number is already in use by the server. Please enter a different port number.', public_ip=self.public_ip, ip=None, port=self.port, server_status=self.server_status)
+            else:
+                return PeerShareException(status_code=409, status='failed', err_code='E001', err_desc='The server is already running in binding mode.', public_ip=self.public_ip, ip=self.selected_network_interface['ipv4'], port=self.port, server_status=self.server_status)
+       
     def stop_server(self):
-        if self.check_server_status()['server_binding']:
+        if self.binding:
             self.server_socket.close()
             del self.server_socket
-            self.port = 0
+
+            self.selected_network_interface = None
+            self.port = None
             self.server_status = 'closed'
+            self.password = None
+
             self.binding = False
             self.listening = False
-            self.connected_devices = list()
-            return PeerShareMessage('success', self.ip, self.port, self.server_status, message='The server\'s socket successfully closed by the user.', server_binding=self.binding, server_listening=self.listening)
-        elif not self.check_server_status()['server_binding']:
-            return PeerShareException('failed', '0x002', 'The server\'s socket already close.', self.ip, self.port, self.server_status, server_binding=self.binding, server_listening=self.listening)
+
+            self.connected_devices_addr = list()
+
+            return PeerShareMessage(status_code=200, status='successful', message_code='M008', message='The server has been successfully shut down.', public_ip=self.public_ip, ip=None, port=self.port, server_status=self.server_status)
+        else:
+            return PeerShareException(status_code=503, status='failed', err_code='E004', err_desc='The server is already off.', public_ip=self.public_ip, ip=None, port=self.port, server_status=self.server_status)
     
-    def start_listening(self):
-        if self.check_server_status()['server_binding']:
-            if not self.check_server_status()['server_listening']:
+    def start_listen(self):
+        if self.binding:
+            if not self.listening:
                 self.server_socket.listen()
-                
                 self.listening = True
                 self.server_status = 'listening'
 
-                server_listen_thread = threading.Thread(target=self.accept_connections)
-                server_listen_thread.start()
-
-                return PeerShareMessage('success', self.ip, self.port, self.server_status, message='The server started to listening for connections.', server_binding=self.binding, server_listening=self.listening)
-            elif self.check_server_status()['server_listening']:
-                return PeerShareException('failed', '0x004', 'The server\'s socket already listening for connections.', self.ip, self.port, self.server_status, server_binding=self.binding, server_listening=self.listening)
-        elif not self.check_server_status()['server_binding']:
-            return PeerShareException('failed', '0x003', 'The server\'s socket is closed to binding. Server have to start to binding first.', self.ip, self.port, self.server_status, server_binding=self.binding, server_listening=self.listening)
-        
-    def accept_connections(self):
-        if self.check_server_status()['server_binding']:
-            if self.check_server_status()['server_listening']:
-                conn, addr = self.server_socket.accept()
-                if (conn, addr) not in self.connected_devices:
-                    self.connected_devices.append((conn, addr))
-                self.start_listening()
+                server_accept_thread = threading.Thread(target=self.accept_connections)
+                server_accept_thread.start()
+                return PeerShareMessage(status_code=200, status='successful', message_code='M009', message='The server has been successfully set to listening mode.', public_ip=self.public_ip, ip=self.selected_network_interface['ipv4'], port=self.port, server_status=self.server_status)
             else:
-                return PeerShareException('failed', '0x006', 'The server have to be bind-listening mode first for accept connection.', self.ip, self.port, self.server_status, server_binding=self.binding, server_listening=self.listening)
-        elif not self.check_server_status()['server_binding']:
-            return PeerShareException('failed', '0x005', 'The server have to be bind-listening mode first for accept connection.', self.ip, self.port, self.server_status, server_binding=self.binding, server_listening=self.listening)
-    
-    def shared_files_list(self, ip, port):
-        if self.check_server_status()['server_binding']:
-            if self.check_server_status()['server_listening']:
-                curr_connection = is_conn_exists(self.connected_devices, ip=ip, port=port)
-                if curr_connection:
-                    path = getcwd() + '/server/files/'
-                    files = listdir(path=path)
-                    files_total = list()
-                    for file in files:
-                        file_type = define_file_type(path=path, file=file)
-                        file_size = define_file_size(path=path, file=file)
-                        files_total.append({'fileName': file, 'fileType': file_type, 'fileSize': file_size})
-                    return PeerShareMessage('success', self.ip, self.port, self.server_status, message='The server shared files for connection.', server_binding=self.binding, server_listening=self.listening, client={'ip': ip, 'port': port}, files=files_total)
-                elif not curr_connection:
-                    return PeerShareException('failed', '0x009', 'The server could not find in the current connection list current connection.', self.ip, self.port, self.server_status, server_binding=self.binding, server_listening=self.listening)
-            elif not self.check_server_status()['server_listening']:
-                return PeerShareException('failed', '0x008', 'The server have to be bind-listening mode first for share files.', self.ip, self.port, self.server_status, server_binding=self.binding, server_listening=self.listening)
-        elif not self.check_server_status()['server_binding']:
-            return PeerShareException('failed', '0x007', 'The server have to be bind-listening mode first for share files.', self.ip, self.port, self.server_status, server_binding=self.binding, server_listening=self.listening)
-    
-    def send_message(self, ip, port, message):
-        if self.check_server_status()['server_binding']:
-            if self.check_server_status()['server_listening']:
-                curr_connection = is_conn_exists(self.connected_devices, ip=ip, port=port)
-                if (self.ip, self.port) == curr_connection:
-                    return PeerShareException('failed', '0x016', 'You can\'t send messages to yourself.', self.ip, self.port, self.server_status, server_binding=self.binding, server_listening=self.listening)
-                if curr_connection:
-                    conn, addr = curr_connection
-                    try:
-                        conn.send(b'ping')
-                    except socket.error:
-                        self.connected_devices.remove(curr_connection)
-                        return PeerShareException('failed', '0x013', 'The client has no connection to the server.', self.ip, self.port, self.server_status, server_binding=self.binding, server_listening=self.listening, client=addr)
-                    conn.send(f'{message}'.encode())
-                    conn.close()
-                    return PeerShareMessage('success', self.ip, self.port, self.server_status, server_binding=self.binding, server_listening=self.listening, client={'ip': ip, 'port': port}, sended_message=message)
-                elif not curr_connection:
-                    return PeerShareException('failed', '0x012', 'The server could not find in the current connection list current connection.', self.ip, self.port, self.server_status, server_binding=self.binding, server_listening=self.listening)
-            elif not self.check_server_status()['server_listening']:
-                return PeerShareException('failed', '0x011', 'The server have to be bind-listening mode first for send message.', self.ip, self.port, self.server_status, server_binding=self.binding, server_listening=self.listening)
-        elif not self.check_server_status()['server_binding']:
-            return PeerShareException('failed', '0x010', 'The server have to be bind-listening mode first for send message.', self.ip, self.port, self.server_status, server_binding=self.binding, server_listening=self.listening)
-    
-    def get_connected_devices(self, ip, port):
-        if self.check_server_status()['server_binding']:
-            if self.check_server_status()['server_listening']:
-                curr_connection = is_conn_exists(self.connected_devices, ip=ip, port=port)
-                if (self.ip, self.port) == curr_connection:
-                    return PeerShareMessage('success', self.ip, self.port, self.server_status, server_binding=self.binding, server_listening=self.listening, connected_devices=change_connected_devices_type(self.connected_devices))
-                else:
-                    return PeerShareException('failed', '0x019', 'It was detected that you do not have sufficient permissions to see the connected users.', self.ip, self.port, self.server_status, server_binding=self.binding, server_listening=self.listening)
-            else:
-                return PeerShareException('failed', '0x018', 'The server have to be bind-listening mode first for send current connections.', self.ip, self.port, self.server_status, server_binding=self.binding, server_listening=self.listening)
+                    return PeerShareException(status_code=409, status='failed', err_code='E006', err_desc='The server is already in listening mode.', public_ip=self.public_ip, ip=self.selected_network_interface['ipv4'], port=self.port, server_status=self.server_status)
         else:
-            return PeerShareException('failed', '0x017', 'The server have to be bind-listening mode first for send current connections.', self.ip, self.port, self.server_status, server_binding=self.binding, server_listening=self.listening)
+            return PeerShareException(status_code=503, status='failed', err_code='E005', err_desc='To enable the server\'s listening mode, you must first enable the binding mode.', public_ip=self.public_ip, ip=None, port=self.port, server_status=self.server_status)
+
+    def accept_connections(self):
+        conn, addr = self.server_socket.accept()
+        self.connected_devices_addr.append({'ip': addr[0], 'port': addr[1]})
+        self.connected_devices.append({'socket_conn': conn, 'socket_addr': addr})
+        self.start_listen()
+
+    def get_connected_devices(self, ip, port, password):
+        if self.binding:
+            if self.listening:
+                if not check_password(server_password=self.password, client_password=password):
+                    return PeerShareException(status_code=401, status='failed', err_code='E014', err_desc='Incorrect or missing password.', public_ip=self.public_ip, ip=None, port=self.port, server_status=self.server_status)
+                
+                curr_connection = is_server((self.selected_network_interface['ipv4'], self.port), ip=ip, port=port)
+                if curr_connection:
+                    return PeerShareMessage(status_code=200, status='successful', message_code='M010', message='Devices connected to the server have been successfully identified.', public_ip=self.public_ip, ip=self.selected_network_interface['ipv4'], port=self.port, server_status=self.server_status, connected_devices_addr=self.connected_devices_addr)
+                else:
+                    return PeerShareException(status_code=403, status='failed', err_code='E009', err_desc='Only the server can view the devices connected to it. (Logically, this seems to be the case...)', public_ip=self.public_ip, ip=self.selected_network_interface['ipv4'], port=self.port, server_status=self.server_status)
+            else:
+                return PeerShareException(status_code=503, status='failed', err_code='E008', err_desc='To view the devices connected to the server, the device\'s listen mode must first be active.', public_ip=self.public_ip, ip=self.selected_network_interface['ipv4'], port=self.port, server_status=self.server_status)
+        else:
+            return PeerShareException(status_code=503, status='failed', err_code='E007', err_desc='To view the devices connected to the server, the device\'s bind mode must first be active.', public_ip=self.public_ip, ip=None, port=self.port, server_status=self.server_status)
+    
+    def shared_files(self, ip, port, password):
+            if self.binding:
+                if self.listening:
+                    if not check_password(server_password=self.password, client_password=password):
+                        return PeerShareException(status_code=401, status='failed', err_code='E013', err_desc='Incorrect or missing password.', public_ip=self.public_ip, ip=self.selected_network_interface['ipv4'], port=self.port, server_status=self.server_status)
+                    curr_connection = is_conn_exists(self.connected_devices_addr, ip=ip, port=port)
+                    if curr_connection:
+                        path = getcwd() + '/server/files/'
+                        files = listdir(path=path)
+                        files_total = list()
+                        for file in files:
+                            file_type = define_file_type(path=path, file=file)
+                            file_size = define_file_size(path=path, file=file)
+                            files_total.append({'fileName': file, 'fileType': file_type, 'fileSize': file_size})
+                        return PeerShareMessage(status_code=200, status='successful', message_code='M011', message='Shared files have been successfully transmitted in the system.', public_ip=self.public_ip, ip=self.selected_network_interface['ipv4'], port=self.port, server_status=self.server_status, connected_devices_addr=self.connected_devices_addr, file_list=files_total)
+                    else:
+                        return PeerShareException(status_code=403, status='failed', err_code='E010', err_desc='In order to view shared files, you must first be connected to the server.', public_ip=self.public_ip, ip=self.selected_network_interface['ipv4'], port=self.port, server_status=self.server_status)
+                else:
+                    return PeerShareException(status_code=503, status='failed', err_code='E011', err_desc='To view the devices connected to the server, the device\'s listen mode must first be active.', public_ip=self.public_ip, ip=self.selected_network_interface['ipv4'], port=self.port, server_status=self.server_status)
+            else:
+                return PeerShareException(status_code=503, status='failed', err_code='E012', err_desc='To view the devices connected to the server, the device\'s bind mode must first be active.', public_ip=self.public_ip, ip=None, port=self.port, server_status=self.server_status)
+        

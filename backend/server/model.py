@@ -1,20 +1,20 @@
 from pydantic import BaseModel
+from typing import Union
 
-class LANServerStartServer(BaseModel):
+class SetPasswordModel(BaseModel):
+    password: Union[str, None] = None
+
+class StartServerModel(BaseModel):
+    interface: str
     port: int
+    password: Union[str, None] = None
 
-class WANServerStartServer(BaseModel):
-    port: int
-
-class ShowFilesAddr(BaseModel):
+class SharedFilesModel(BaseModel):
     ip: str
     port: int
+    password: Union[str, None] = None
 
-class SendMessageAddr(BaseModel):
+class ConnectedDevicesModel(BaseModel):
     ip: str
     port: int
-    message: str
-
-class ConnectedDevice(BaseModel):
-    ip: str
-    port: int
+    password: Union[str, None] = None 

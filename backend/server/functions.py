@@ -1,9 +1,42 @@
 from requests import get
-from json import load
+import netifaces
 import socket
 
 from os import stat
 from os.path import isdir, isfile
+
+def get_network_interfaces() -> list:
+    interfaces = []
+
+    gateways = netifaces.gateways()
+    default_gateway = gateways.get(netifaces.AF_INET, [(None, None)])[0]
+
+    for interface in netifaces.interfaces():
+        addresses = netifaces.ifaddresses(interface)
+        if netifaces.AF_INET in addresses:
+            int_info = {
+                'interface': interface,
+                'ipv4': addresses[netifaces.AF_INET][0].get('addr'),
+                'netmask': addresses[netifaces.AF_INET][0].get('netmask'),
+                'broadcast': addresses[netifaces.AF_INET][0].get('broadcast'),
+            }
+            try:
+                if default_gateway and interface == gateways[netifaces.AF_INET][0][1]:
+                    int_info['gateway'] = default_gateway[0]
+                else:
+                    int_info['gateway'] = None
+            except:
+                int_info['gateway'] = None
+            interfaces.append(int_info)
+    return interfaces
+
+def get_network_interface(inter_name: str) -> dict:
+    interfaces = get_network_interfaces()
+
+    for interface in interfaces:
+        if interface['interface'] == inter_name:
+            return interface
+    return None
 
 def get_server_lan_ip() -> str:
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -13,13 +46,11 @@ def get_server_lan_ip() -> str:
     return local_ip_address
 
 def get_server_wan_ip():
-    ip = get('https://api.ipify.org').content.decode('utf8')
-    return ip
-
-def get_server_port():
-    with open('conf.json', 'r') as file:
-        server_port = load(file)['port']
-    return server_port
+    try:
+        ip = get('https://api.ipify.org').content.decode('utf8')
+        return ip
+    except:
+        return None
 
 def define_file_type(path, file):
         if isfile(path+file):
@@ -48,8 +79,13 @@ def define_file_size(path, file):
 
 def is_conn_exists(connections: list, ip: str, port: int):
     for connection in connections:
-        if (ip, port) == connection:
+        if (ip, port) == (connection['ip'], connection['port']):
             return connection
+    return None
+
+def is_server(server_addr: tuple, ip: str, port: int) -> bool:
+    if (ip, port) == server_addr:
+        return True
     return False
 
 def change_connected_devices_type(conn_devices: list):
@@ -60,3 +96,11 @@ def change_connected_devices_type(conn_devices: list):
             'port': device[1][1]
         })
     return conn_dict
+
+def check_password(server_password: str, client_password: str) -> bool:
+    if not server_password:
+        return True
+    if server_password == client_password:
+        return True
+    else:
+        return False
