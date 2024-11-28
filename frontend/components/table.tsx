@@ -17,15 +17,17 @@ export function TableComp({ tableHeader, tableBody }: tableCompProps) {
                     </tr>
                 </thead>
                 <tbody>
-                    {tableBody.map((row: any, rowIndex: number) => (
-                        <tr key={rowIndex} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            {tableHeader.map((key, colIndex) => (
-                                <td key={colIndex} className="px-6 py-4">
-                                    {row[key] || '-'}
-                                </td>
-                            ))}
-                        </tr>
-                    ))}
+                    {tableBody.map((row: any, rowIndex: number) => {
+                        return (
+                            <tr key={rowIndex} className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                {tableHeader.map((key, colIndex) => (
+                                    <td key={colIndex} className="px-6 py-4">
+                                        {row[key] || '-'}
+                                    </td>
+                                ))}
+                            </tr>
+                        );
+                    })}
                 </tbody>
             </table>
         </div>
