@@ -111,7 +111,7 @@ class Server:
         if self.binding:
             if self.listening:
                 if not check_password(server_password=self.password, client_password=password):
-                    return PeerShareException(status_code=401, status='failed', err_code='E014', err_desc='Incorrect or missing password.', public_ip=self.public_ip, ip=None, port=self.port, server_status=self.server_status)
+                    return PeerShareException(status_code=401, status='failed', err_code='E014', err_desc='Incorrect or missing password.', public_ip=self.public_ip, ip=self.selected_network_interface['ipv4'], port=self.port, server_status=self.server_status)
                 
                 curr_connection = is_server((self.selected_network_interface['ipv4'], self.port), ip=ip, port=port)
                 if curr_connection:
