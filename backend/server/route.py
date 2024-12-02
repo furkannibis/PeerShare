@@ -16,6 +16,7 @@ async def server_root():
 
 @server_router.get('/server/network-interfaces')
 async def get_net_card():
+    
     net_ints = server.send_network_interfaces()
     return JSONResponse(status_code=net_ints['status_code'], content=net_ints)
 
@@ -26,6 +27,7 @@ async def get_public_ip():
 
 @server_router.get('/server/server-status')
 async def check_server_status():
+    server.check_device_still_connected()
     status_message = server.check_server_status()
     return JSONResponse(status_code=status_message['status_code'], content=status_message)
 
@@ -53,3 +55,8 @@ async def start_listen():
 async def conn_devices(addr: ConnectedDevicesModel):
     connected_device_message = server.get_connected_devices(addr.ip, addr.port, addr.password)
     return JSONResponse(status_code=connected_device_message['status_code'], content=connected_device_message)
+
+@server_router.get('/server/connected-device-by-date')
+async def conn_devices_by_date():
+    conn_devices = server.connected_client_stat_by_date()
+    return JSONResponse(status_code=conn_devices['status_code'], content=conn_devices)

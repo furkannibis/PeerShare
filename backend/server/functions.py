@@ -1,9 +1,14 @@
 from requests import get
 import netifaces
 import socket
+import json
 
 from os import stat
 from os.path import isdir, isfile
+
+from datetime import datetime, timedelta
+from collections import Counter
+
 
 def get_network_interfaces() -> list:
     interfaces = []
@@ -104,3 +109,43 @@ def check_password(server_password: str, client_password: str) -> bool:
         return True
     else:
         return False
+
+def readEvent() -> list:
+    try:
+        with open('server/event/event.json', 'r') as event_file:
+            json_object = json.load(event_file)
+            if isinstance(json_object, list):
+                return json_object
+    except (FileNotFoundError, json.JSONDecodeError):
+        return []
+    return []
+
+def writeToEvent(event_id: str, event_type: str, event_status: int, event_info: dict, event_date = datetime.now().isoformat()):
+    event_dict = {
+        "eventDate": event_date,
+        "eventID": event_id,
+        "eventType": event_type,
+        "eventStatus": event_status,
+        "eventInfo": event_info
+    }
+    
+    json_file = readEvent()
+    json_file.append(event_dict)
+    
+    with open('server/event/event.json', 'w') as event_file:
+        json.dump(json_file, event_file, indent=4)
+
+def countEventsByDayWithinWeek(end_date=datetime.now()):
+    event_json = readEvent()
+
+    end_datetime = end_date.date()
+    start_datetime = end_datetime - timedelta(days=7)
+
+    daily_events = Counter()
+
+    for event in event_json:
+        event_date = datetime.fromisoformat(event["eventDate"]).date()
+        if start_datetime < event_date <= end_datetime and event['eventID'] == '-':
+            daily_events[event_date.isoformat()] += 1
+
+    return dict(daily_events)

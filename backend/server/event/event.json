@@ -1,0 +1,2206 @@
+[
+    {
+        "eventDate": "2024-11-28T11:23:21.571055",
+        "eventID": "M007",
+        "eventType": "startServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "binding"
+        }
+    },
+    {
+        "eventDate": "2024-11-28T11:23:21.571055",
+        "eventID": "M009",
+        "eventType": "startListen",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-11-29T11:23:21.571055",
+        "eventID": "-",
+        "eventType": "acceptConnection",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening",
+            "cip": "192.168.1.101",
+            "cport": 50802
+        }
+    },
+    {
+        "eventDate": "2024-11-29T11:24:36.845347",
+        "eventID": "M007",
+        "eventType": "startServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "binding"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T11:24:36.845347",
+        "eventID": "M009",
+        "eventType": "startListen",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T11:24:36.845347",
+        "eventID": "-",
+        "eventType": "acceptConnection",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening",
+            "cip": "192.168.1.101",
+            "cport": 56718
+        }
+    },
+    {
+        "eventDate": "2024-11-30T11:24:36.845347",
+        "eventID": "E006",
+        "eventType": "startListen",
+        "eventStatus": 409,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T11:24:36.845347",
+        "eventID": "M008",
+        "eventType": "stopServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": null,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T11:24:36.845347",
+        "eventID": "E004",
+        "eventType": "stopServer",
+        "eventStatus": 503,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": null,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T11:24:36.845347",
+        "eventID": "E004",
+        "eventType": "stopServer",
+        "eventStatus": 503,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": null,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T11:24:36.845347",
+        "eventID": "E005",
+        "eventType": "startListen",
+        "eventStatus": 503,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": null,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T11:24:36.845347",
+        "eventID": "M007",
+        "eventType": "startServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "binding"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T11:24:36.845347",
+        "eventID": "M009",
+        "eventType": "startListen",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T11:24:36.845347",
+        "eventID": "-",
+        "eventType": "acceptConnection",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening",
+            "cip": "192.168.1.101",
+            "cport": 38844
+        }
+    },
+    {
+        "eventDate": "2024-11-30T11:24:36.845347",
+        "eventID": "E006",
+        "eventType": "startListen",
+        "eventStatus": 409,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T11:24:36.845347",
+        "eventID": "M008",
+        "eventType": "stopServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": null,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T11:24:36.845347",
+        "eventID": "M007",
+        "eventType": "startServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "binding"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T11:24:36.845347",
+        "eventID": "M009",
+        "eventType": "startListen",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T11:24:36.845347",
+        "eventID": "-",
+        "eventType": "acceptConnection",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening",
+            "cip": "192.168.1.101",
+            "cport": 46662
+        }
+    },
+    {
+        "eventDate": "2024-11-30T11:24:36.845347",
+        "eventID": "E006",
+        "eventType": "startListen",
+        "eventStatus": 409,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T11:24:36.845347",
+        "eventID": "E001",
+        "eventType": "startServer",
+        "eventStatus": 409,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T11:24:36.845347",
+        "eventID": "E006",
+        "eventType": "startListen",
+        "eventStatus": 409,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T11:24:36.845347",
+        "eventID": "E001",
+        "eventType": "startServer",
+        "eventStatus": 409,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T11:24:36.845347",
+        "eventID": "E006",
+        "eventType": "startListen",
+        "eventStatus": 409,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T11:24:36.845347",
+        "eventID": "M008",
+        "eventType": "stopServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": null,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T11:24:36.845347",
+        "eventID": "M007",
+        "eventType": "startServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "binding"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T11:24:36.845347",
+        "eventID": "M009",
+        "eventType": "startListen",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T11:24:36.845347",
+        "eventID": "-",
+        "eventType": "acceptConnection",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening",
+            "cip": "192.168.1.101",
+            "cport": 56644
+        }
+    },
+    {
+        "eventDate": "2024-11-30T11:24:36.845347",
+        "eventID": "E006",
+        "eventType": "startListen",
+        "eventStatus": 409,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T11:24:36.845347",
+        "eventID": "E006",
+        "eventType": "startListen",
+        "eventStatus": 409,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T12:18:28.143479",
+        "eventID": "M007",
+        "eventType": "startServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "binding"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T12:18:28.143479",
+        "eventID": "M009",
+        "eventType": "startListen",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T12:18:28.143479",
+        "eventID": "-",
+        "eventType": "acceptConnection",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening",
+            "cip": "192.168.1.101",
+            "cport": 57060
+        }
+    },
+    {
+        "eventDate": "2024-11-30T12:18:28.143479",
+        "eventID": "E006",
+        "eventType": "startListen",
+        "eventStatus": 409,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T12:18:28.143479",
+        "eventID": "M008",
+        "eventType": "stopServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": null,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T12:18:28.143479",
+        "eventID": "M007",
+        "eventType": "startServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "binding"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T12:18:28.143479",
+        "eventID": "M009",
+        "eventType": "startListen",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T12:18:28.143479",
+        "eventID": "-",
+        "eventType": "acceptConnection",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening",
+            "cip": "192.168.1.101",
+            "cport": 48180
+        }
+    },
+    {
+        "eventDate": "2024-11-30T12:18:28.143479",
+        "eventID": "E006",
+        "eventType": "startListen",
+        "eventStatus": 409,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T15:57:58.705317",
+        "eventID": "M007",
+        "eventType": "startServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "binding"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T15:57:58.705317",
+        "eventID": "M009",
+        "eventType": "startListen",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T20:31:19.682418",
+        "eventID": "M007",
+        "eventType": "startServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "binding"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T20:31:19.682418",
+        "eventID": "M009",
+        "eventType": "startListen",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T20:31:19.682418",
+        "eventID": "M008",
+        "eventType": "stopServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": null,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T20:31:19.682418",
+        "eventID": "E004",
+        "eventType": "stopServer",
+        "eventStatus": 503,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": 12345,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T20:31:19.682418",
+        "eventID": "E003",
+        "eventType": "startServer",
+        "eventStatus": 409,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": 12345,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T20:31:19.682418",
+        "eventID": "M007",
+        "eventType": "startServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12346,
+            "server_status": "binding"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T20:31:19.682418",
+        "eventID": "M008",
+        "eventType": "stopServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": null,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T20:31:19.682418",
+        "eventID": "M007",
+        "eventType": "startServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12347,
+            "server_status": "binding"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T20:31:19.682418",
+        "eventID": "M008",
+        "eventType": "stopServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": null,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T20:31:19.682418",
+        "eventID": "M007",
+        "eventType": "startServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12348,
+            "server_status": "binding"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T20:31:19.682418",
+        "eventID": "E001",
+        "eventType": "startServer",
+        "eventStatus": 409,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12348,
+            "server_status": "binding"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T20:31:19.682418",
+        "eventID": "M008",
+        "eventType": "stopServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": null,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T20:31:19.682418",
+        "eventID": "M007",
+        "eventType": "startServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12349,
+            "server_status": "binding"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T20:31:19.682418",
+        "eventID": "M009",
+        "eventType": "startListen",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12349,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T20:31:19.682418",
+        "eventID": "M008",
+        "eventType": "stopServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": null,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T20:31:19.682418",
+        "eventID": "E004",
+        "eventType": "stopServer",
+        "eventStatus": 503,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": null,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T20:31:19.682418",
+        "eventID": "E005",
+        "eventType": "startListen",
+        "eventStatus": 503,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": null,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T20:31:19.682418",
+        "eventID": "E005",
+        "eventType": "startListen",
+        "eventStatus": 503,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": null,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T20:31:19.682418",
+        "eventID": "E004",
+        "eventType": "stopServer",
+        "eventStatus": 503,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": 12349,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T20:31:19.682418",
+        "eventID": "E003",
+        "eventType": "startServer",
+        "eventStatus": 409,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": 12349,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T20:31:19.682418",
+        "eventID": "E004",
+        "eventType": "stopServer",
+        "eventStatus": 503,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": 12349,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T20:31:19.682418",
+        "eventID": "E004",
+        "eventType": "stopServer",
+        "eventStatus": 503,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": 12349,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T20:31:19.682418",
+        "eventID": "M007",
+        "eventType": "startServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12350,
+            "server_status": "binding"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T20:31:19.682418",
+        "eventID": "M008",
+        "eventType": "stopServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": null,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T20:31:19.682418",
+        "eventID": "M007",
+        "eventType": "startServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12350,
+            "server_status": "binding"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T20:31:19.682418",
+        "eventID": "M009",
+        "eventType": "startListen",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12350,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T20:31:19.682418",
+        "eventID": "M008",
+        "eventType": "stopServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": null,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T20:31:19.682418",
+        "eventID": "E004",
+        "eventType": "stopServer",
+        "eventStatus": 503,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": 12350,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T20:31:19.682418",
+        "eventID": "E003",
+        "eventType": "startServer",
+        "eventStatus": 409,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": 12350,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T20:31:19.682418",
+        "eventID": "E004",
+        "eventType": "stopServer",
+        "eventStatus": 503,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": 12350,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T20:31:19.682418",
+        "eventID": "E004",
+        "eventType": "stopServer",
+        "eventStatus": 503,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": 12350,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T20:31:19.682418",
+        "eventID": "E005",
+        "eventType": "startListen",
+        "eventStatus": 503,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": 12350,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T20:31:19.682418",
+        "eventID": "E002",
+        "eventType": "startServer",
+        "eventStatus": 400,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": 12350,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T20:31:19.682418",
+        "eventID": "E002",
+        "eventType": "startServer",
+        "eventStatus": 400,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": 12350,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T20:31:19.682418",
+        "eventID": "E005",
+        "eventType": "startListen",
+        "eventStatus": 503,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": 12350,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T20:31:19.682418",
+        "eventID": "E002",
+        "eventType": "startServer",
+        "eventStatus": 400,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": 12350,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T20:31:19.682418",
+        "eventID": "E002",
+        "eventType": "startServer",
+        "eventStatus": 400,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": 12350,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T20:31:19.682418",
+        "eventID": "M007",
+        "eventType": "startServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 11111,
+            "server_status": "binding"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T20:31:19.682418",
+        "eventID": "M009",
+        "eventType": "startListen",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 11111,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T20:31:19.682418",
+        "eventID": "M008",
+        "eventType": "stopServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": null,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T20:31:19.682418",
+        "eventID": "E004",
+        "eventType": "stopServer",
+        "eventStatus": 503,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": 11111,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T20:31:19.682418",
+        "eventID": "E003",
+        "eventType": "startServer",
+        "eventStatus": 409,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": 11111,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:05:52.273752",
+        "eventID": "M007",
+        "eventType": "startServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 11111,
+            "server_status": "binding"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:05:52.273752",
+        "eventID": "M009",
+        "eventType": "startListen",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 11111,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:08:22.846665",
+        "eventID": "M007",
+        "eventType": "startServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "binding"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:08:22.846665",
+        "eventID": "M009",
+        "eventType": "startListen",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:08:22.846665",
+        "eventID": "M008",
+        "eventType": "stopServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": null,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:08:22.846665",
+        "eventID": "E004",
+        "eventType": "stopServer",
+        "eventStatus": 503,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": 12345,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:08:22.846665",
+        "eventID": "E003",
+        "eventType": "startServer",
+        "eventStatus": 409,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": 12345,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:08:22.846665",
+        "eventID": "E005",
+        "eventType": "startListen",
+        "eventStatus": 503,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": 12345,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:08:22.846665",
+        "eventID": "E004",
+        "eventType": "stopServer",
+        "eventStatus": 503,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": 12345,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:08:22.846665",
+        "eventID": "E003",
+        "eventType": "startServer",
+        "eventStatus": 409,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": 12345,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:08:22.846665",
+        "eventID": "M007",
+        "eventType": "startServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12346,
+            "server_status": "binding"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:08:22.846665",
+        "eventID": "M009",
+        "eventType": "startListen",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12346,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:08:22.846665",
+        "eventID": "E006",
+        "eventType": "startListen",
+        "eventStatus": 409,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12346,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:08:22.846665",
+        "eventID": "E006",
+        "eventType": "startListen",
+        "eventStatus": 409,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12346,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:08:22.846665",
+        "eventID": "E001",
+        "eventType": "startServer",
+        "eventStatus": 409,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12346,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:08:22.846665",
+        "eventID": "M008",
+        "eventType": "stopServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": null,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:08:22.846665",
+        "eventID": "E004",
+        "eventType": "stopServer",
+        "eventStatus": 503,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": 12346,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:08:22.846665",
+        "eventID": "E003",
+        "eventType": "startServer",
+        "eventStatus": 409,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": 12346,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:08:22.846665",
+        "eventID": "M007",
+        "eventType": "startServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12347,
+            "server_status": "binding"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:08:22.846665",
+        "eventID": "M009",
+        "eventType": "startListen",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12347,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:08:22.846665",
+        "eventID": "M008",
+        "eventType": "stopServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": null,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:08:22.846665",
+        "eventID": "E004",
+        "eventType": "stopServer",
+        "eventStatus": 503,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": 12347,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:08:22.846665",
+        "eventID": "E003",
+        "eventType": "startServer",
+        "eventStatus": 409,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": 12347,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:08:22.846665",
+        "eventID": "M007",
+        "eventType": "startServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12350,
+            "server_status": "binding"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:08:22.846665",
+        "eventID": "M009",
+        "eventType": "startListen",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12350,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:08:22.846665",
+        "eventID": "M008",
+        "eventType": "stopServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": null,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:08:22.846665",
+        "eventID": "M007",
+        "eventType": "startServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 11111,
+            "server_status": "binding"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:08:22.846665",
+        "eventID": "M009",
+        "eventType": "startListen",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 11111,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:08:22.846665",
+        "eventID": "M008",
+        "eventType": "stopServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": null,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:08:22.846665",
+        "eventID": "E004",
+        "eventType": "stopServer",
+        "eventStatus": 503,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": 12345,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:08:22.846665",
+        "eventID": "E003",
+        "eventType": "startServer",
+        "eventStatus": 409,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": 12345,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:08:22.846665",
+        "eventID": "E004",
+        "eventType": "stopServer",
+        "eventStatus": 503,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": 12346,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:08:22.846665",
+        "eventID": "E003",
+        "eventType": "startServer",
+        "eventStatus": 409,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": 12346,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:08:22.846665",
+        "eventID": "M007",
+        "eventType": "startServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12312,
+            "server_status": "binding"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:08:22.846665",
+        "eventID": "M009",
+        "eventType": "startListen",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12312,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:33:45.641873",
+        "eventID": "E004",
+        "eventType": "stopServer",
+        "eventStatus": 503,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": null,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:33:45.641873",
+        "eventID": "M007",
+        "eventType": "startServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 22222,
+            "server_status": "binding"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:33:45.641873",
+        "eventID": "M008",
+        "eventType": "stopServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": null,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:33:45.641873",
+        "eventID": "M007",
+        "eventType": "startServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 22223,
+            "server_status": "binding"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:33:45.641873",
+        "eventID": "M009",
+        "eventType": "startListen",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 22223,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:34:42.598993",
+        "eventID": "E004",
+        "eventType": "stopServer",
+        "eventStatus": 503,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": null,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:34:42.598993",
+        "eventID": "M007",
+        "eventType": "startServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 22224,
+            "server_status": "binding"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:34:42.598993",
+        "eventID": "M009",
+        "eventType": "startListen",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 22224,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:34:42.598993",
+        "eventID": "M008",
+        "eventType": "stopServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": null,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:34:42.598993",
+        "eventID": "M007",
+        "eventType": "startServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 22234,
+            "server_status": "binding"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:34:42.598993",
+        "eventID": "M009",
+        "eventType": "startListen",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 22234,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:34:42.598993",
+        "eventID": "M008",
+        "eventType": "stopServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": null,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:34:42.598993",
+        "eventID": "M007",
+        "eventType": "startServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 55555,
+            "server_status": "binding"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:34:42.598993",
+        "eventID": "M009",
+        "eventType": "startListen",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 55555,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:34:42.598993",
+        "eventID": "-",
+        "eventType": "acceptConnection",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 55555,
+            "server_status": "listening",
+            "cip": "192.168.1.101",
+            "cport": 47804
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:34:42.598993",
+        "eventID": "E006",
+        "eventType": "startListen",
+        "eventStatus": 409,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 55555,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:34:42.598993",
+        "eventID": "M008",
+        "eventType": "stopServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": null,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:34:42.598993",
+        "eventID": "M007",
+        "eventType": "startServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 55556,
+            "server_status": "binding"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:34:42.598993",
+        "eventID": "M009",
+        "eventType": "startListen",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 55556,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:34:42.598993",
+        "eventID": "-",
+        "eventType": "acceptConnection",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 55556,
+            "server_status": "listening",
+            "cip": "192.168.1.101",
+            "cport": 55028
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:34:42.598993",
+        "eventID": "E006",
+        "eventType": "startListen",
+        "eventStatus": 409,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 55556,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-11-30T23:34:42.598993",
+        "eventID": "M008",
+        "eventType": "stopServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": null,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-12-01T12:12:07.022365",
+        "eventID": "M007",
+        "eventType": "startServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "binding"
+        }
+    },
+    {
+        "eventDate": "2024-12-01T12:12:07.022365",
+        "eventID": "M009",
+        "eventType": "startListen",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-12-01T12:12:07.022365",
+        "eventID": "-",
+        "eventType": "acceptConnection",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening",
+            "cip": "192.168.1.101",
+            "cport": 37782
+        }
+    },
+    {
+        "eventDate": "2024-12-01T12:12:07.022365",
+        "eventID": "E006",
+        "eventType": "startListen",
+        "eventStatus": 409,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-12-01T12:39:29.774637",
+        "eventID": "M007",
+        "eventType": "startServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "binding"
+        }
+    },
+    {
+        "eventDate": "2024-12-01T12:39:29.774637",
+        "eventID": "M009",
+        "eventType": "startListen",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-12-01T12:39:29.774637",
+        "eventID": "-",
+        "eventType": "acceptConnection",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening",
+            "cip": "192.168.1.101",
+            "cport": 51542
+        }
+    },
+    {
+        "eventDate": "2024-12-01T12:39:29.774637",
+        "eventID": "E006",
+        "eventType": "startListen",
+        "eventStatus": 409,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-12-01T12:43:37.841241",
+        "eventID": "M007",
+        "eventType": "startServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "binding"
+        }
+    },
+    {
+        "eventDate": "2024-12-01T12:43:37.841241",
+        "eventID": "M009",
+        "eventType": "startListen",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-12-01T12:43:37.841241",
+        "eventID": "-",
+        "eventType": "acceptConnection",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening",
+            "cip": "192.168.1.101",
+            "cport": 45918
+        }
+    },
+    {
+        "eventDate": "2024-12-01T12:43:37.841241",
+        "eventID": "E006",
+        "eventType": "startListen",
+        "eventStatus": 409,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-12-01T12:44:22.151754",
+        "eventID": "M007",
+        "eventType": "startServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "binding"
+        }
+    },
+    {
+        "eventDate": "2024-12-01T12:44:22.151754",
+        "eventID": "M009",
+        "eventType": "startListen",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-12-01T12:44:46.204505",
+        "eventID": "M007",
+        "eventType": "startServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "binding"
+        }
+    },
+    {
+        "eventDate": "2024-12-01T12:44:46.204505",
+        "eventID": "M009",
+        "eventType": "startListen",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-12-01T12:44:46.204505",
+        "eventID": "-",
+        "eventType": "acceptConnection",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening",
+            "cip": "192.168.1.101",
+            "cport": 37304
+        }
+    },
+    {
+        "eventDate": "2024-12-01T12:44:46.204505",
+        "eventID": "E006",
+        "eventType": "startListen",
+        "eventStatus": 409,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-12-01T13:19:18.755804",
+        "eventID": "M007",
+        "eventType": "startServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "binding"
+        }
+    },
+    {
+        "eventDate": "2024-12-01T13:19:18.755804",
+        "eventID": "M009",
+        "eventType": "startListen",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-12-01T13:19:18.755804",
+        "eventID": "-",
+        "eventType": "acceptConnection",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening",
+            "cip": "192.168.1.101",
+            "cport": 43588
+        }
+    },
+    {
+        "eventDate": "2024-12-01T13:19:18.755804",
+        "eventID": "E006",
+        "eventType": "startListen",
+        "eventStatus": 409,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-12-01T13:20:46.808782",
+        "eventID": "M007",
+        "eventType": "startServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "binding"
+        }
+    },
+    {
+        "eventDate": "2024-12-01T13:20:46.808782",
+        "eventID": "M009",
+        "eventType": "startListen",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-12-01T13:20:46.808782",
+        "eventID": "-",
+        "eventType": "acceptConnection",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening",
+            "cip": "192.168.1.101",
+            "cport": 36768
+        }
+    },
+    {
+        "eventDate": "2024-12-01T13:20:46.808782",
+        "eventID": "E006",
+        "eventType": "startListen",
+        "eventStatus": 409,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-12-01T13:23:54.193928",
+        "eventID": "M007",
+        "eventType": "startServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "binding"
+        }
+    },
+    {
+        "eventDate": "2024-12-01T13:23:54.193928",
+        "eventID": "M009",
+        "eventType": "startListen",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-12-01T13:23:54.193928",
+        "eventID": "-",
+        "eventType": "acceptConnection",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening",
+            "cip": "192.168.1.101",
+            "cport": 42940
+        }
+    },
+    {
+        "eventDate": "2024-12-01T13:23:54.193928",
+        "eventID": "E006",
+        "eventType": "startListen",
+        "eventStatus": 409,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-12-02T11:01:06.803637",
+        "eventID": "M007",
+        "eventType": "startServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "binding"
+        }
+    },
+    {
+        "eventDate": "2024-12-02T11:01:06.803637",
+        "eventID": "M009",
+        "eventType": "startListen",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-12-02T11:03:02.106116",
+        "eventID": "M007",
+        "eventType": "startServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "binding"
+        }
+    },
+    {
+        "eventDate": "2024-12-02T11:03:02.106116",
+        "eventID": "M009",
+        "eventType": "startListen",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12345,
+            "server_status": "listening"
+        }
+    },
+    {
+        "eventDate": "2024-12-02T11:03:02.106116",
+        "eventID": "M008",
+        "eventType": "stopServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": null,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-12-02T11:03:02.106116",
+        "eventID": "E004",
+        "eventType": "stopServer",
+        "eventStatus": 503,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": null,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-12-02T11:03:02.106116",
+        "eventID": "E004",
+        "eventType": "stopServer",
+        "eventStatus": 503,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": null,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-12-02T11:03:02.106116",
+        "eventID": "E004",
+        "eventType": "stopServer",
+        "eventStatus": 503,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": 12345,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-12-02T11:03:02.106116",
+        "eventID": "E003",
+        "eventType": "startServer",
+        "eventStatus": 409,
+        "eventInfo": {
+            "selectedInterface": null,
+            "ip": null,
+            "port": 12345,
+            "server_status": "closed"
+        }
+    },
+    {
+        "eventDate": "2024-12-02T11:03:02.106116",
+        "eventID": "M007",
+        "eventType": "startServer",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12346,
+            "server_status": "binding"
+        }
+    },
+    {
+        "eventDate": "2024-12-02T11:03:02.106116",
+        "eventID": "M009",
+        "eventType": "startListen",
+        "eventStatus": 200,
+        "eventInfo": {
+            "selectedInterface": "wlp2s0",
+            "ip": "192.168.1.101",
+            "port": 12346,
+            "server_status": "listening"
+        }
+    }
+]
