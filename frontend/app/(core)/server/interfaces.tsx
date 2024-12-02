@@ -5,7 +5,7 @@ export interface MessageInfoInterface {
 
 export interface ServiceInfoInterface {
     public_ip: string | null
-    ip: string | null
+    ip: string
     port: number | null
     server_status: string
 }
@@ -39,13 +39,13 @@ export interface ServerStatusInterface {
 }
 
 export interface StartServerInputInterface {
-    nic: string
+    nic: string | null
     port: number
     password: string | null
 }
 
 export interface StartServerInterface {
-    status_code: number
+    status_code: 200
     status: string
     message_info: MessageInfoInterface
     service_info: ServiceInfoInterface
@@ -113,3 +113,38 @@ export interface ConnectedDevicesExceptionInterface {
 }
 
 export type ConnectedDeviceResponse = ConnectedDevicesInterface | ConnectedDevicesExceptionInterface
+
+export interface fileListInterface {
+    fileName: string
+    fileType: string
+    fileSize: string
+}
+
+export interface SharedFilesInterface {
+    status_code: number
+    status: string
+    message_info: MessageInfoInterface
+    service_info: ServiceInfoInterface
+    file_list: fileListInterface[]
+}
+
+export interface SharedFilesExceptionInterface {
+    status_code: number
+    status: string
+    err_info: ErrorInfoInterface
+    service_info: ServiceInfoInterface
+}
+
+export type SharedFilesResponse = SharedFilesInterface | SharedFilesExceptionInterface
+
+export interface ConnectedDeviceCountInfoInterface {
+    conn_inf: { [date: string]: number }
+}
+
+export interface ConnectedDeviceCountInterface {
+    status_code: number
+    status: string
+    message_info: MessageInfoInterface
+    service_info: ServiceInfoInterface
+    conn_inf: ConnectedDeviceCountInfoInterface
+}
