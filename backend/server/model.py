@@ -1,20 +1,8 @@
 from pydantic import BaseModel
-from typing import Union
+from typing import Optional
 
-class SetPasswordModel(BaseModel):
-    password: Union[str, None] = None
-
-class StartServerModel(BaseModel):
-    interface: str
-    port: int
-    password: Union[str, None] = None
-
-class SharedFilesModel(BaseModel):
+class ServerSocketParameters(BaseModel):
     ip: str
     port: int
-    password: Union[str, None] = None
-
-class ConnectedDevicesModel(BaseModel):
-    ip: str
-    port: int
-    password: Union[str, None] = None 
+    password: str
+    max_conn_count: int

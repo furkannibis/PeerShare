@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from server.route import server_router
-from client.route import client_route
+from client.route import client_router
 
 app = FastAPI()
 app.add_middleware(
@@ -14,7 +14,7 @@ app.add_middleware(
 )
 
 app.include_router(server_router)
-app.include_router(client_route)
+app.include_router(client_router)
 
 @app.get('/')
 async def root():
