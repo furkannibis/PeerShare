@@ -1,5 +1,5 @@
 
-def PeerShareClientMessage(status_code, status, message_code, message, ip, port, **kwargs):
+def PeerShareClientMessage(status_code, status, message_code, message, wan_ip, ip, port, **kwargs):
     return {
         'status_code': status_code,
         'status': status,
@@ -8,13 +8,14 @@ def PeerShareClientMessage(status_code, status, message_code, message, ip, port,
             'message': message
         },
         'server_info': {
+            'wan_ip': wan_ip,
             'ip': ip,
             'port': port
         },
         **kwargs
     }
 
-def PeerShareClientException(status_code, status, err_code, err_desc, ip, port, **kwargs):
+def PeerShareClientException(status_code, status, err_code, err_desc, wan_ip, ip, port, **kwargs):
     return {
         'status_code': status_code,
         'status': status,
@@ -23,6 +24,7 @@ def PeerShareClientException(status_code, status, err_code, err_desc, ip, port, 
             'error_desc': err_desc,
         },
         'server_info': {
+            'wan_ip': wan_ip,
             'ip': ip,
             'port': port,
         },

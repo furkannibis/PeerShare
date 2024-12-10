@@ -83,3 +83,10 @@ def show_files_for_server(file_path_or_buffer: str):
             'downloaded_count': find_downloaded_count(file_path_or_buffer+file)
         })
     return files_stats
+
+def send_files_to_client(file_path_or_buffer: str='./server/files/'):
+    files_stats = []
+    files = show_files(file_path_or_buffer=file_path_or_buffer)
+    for file in files:
+        files_stats.append(f"{file}|{file_size(file_path_or_buffer=file_path_or_buffer + file)}|{file_type(file_path_or_buffer=file_path_or_buffer + file)}")
+    return files_stats

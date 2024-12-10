@@ -4,7 +4,7 @@ from tqdm import tqdm
 from datetime import datetime
 import os
 
-from ps_obj.functions import show_files, file_info, file_size, show_files_for_server
+from ps_obj.functions import show_files, file_info, show_files_for_server, send_files_to_client
 from ps_obj.psMessage import PeerShareServerMessage, PeerShareServerException
 
 from server.functions import write_to_event, wan_ip
@@ -114,7 +114,7 @@ class Server(socket.socket):
 
                 elif message == 'files':
                     write_to_event({'event_code': 'EUAF', 'event_description': 'User request all files', 'ip': connection.ip, 'port': connection.port})
-                    connection.socket_conn.send('\n'.join(show_files('./server/files')).encode())
+                    connection.socket_conn.send('\n'.join(send_files_to_client('./server/files/')).encode('utf-8'))
 
                 elif message.startswith('file:'):
                     file_name = message.split(':', 1)[1].strip()
@@ -177,7 +177,6 @@ class Server(socket.socket):
                 'connected_time': connection.connected_time,
                 'downloaded_size': connection.downloaded_size
                 })
-        self.show_shared_files()
         self.message = PeerShareServerMessage(status_code=200, status='success', message_code='M005', message=f'Information about the devices connected to the server has been transferred successfully.', wan_ip=self.wan_ip, ip=self.ip, port=self.port, server_binding=self.binding, server_listening=self.listening, devices=devices_info)
 
     def show_shared_files(self):

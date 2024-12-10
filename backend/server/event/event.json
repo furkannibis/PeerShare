@@ -696,5 +696,558 @@
         "port": 39272,
         "file": "./server/files/5saniyee.txt",
         "time": "10.12.2024 12:31:36"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "10.12.2024 17:24:38"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "10.12.2024 17:24:56"
+    },
+    {
+        "event_code": "ESLS",
+        "event_description": "Server listen started",
+        "time": "10.12.2024 17:24:56"
+    },
+    {
+        "event_code": "EUSL",
+        "event_description": "User enter to server successfully",
+        "ip": "192.168.1.101",
+        "port": 43386,
+        "time": "10.12.2024 17:25:48"
+    },
+    {
+        "event_code": "EUAF",
+        "event_description": "User request all files",
+        "ip": "192.168.1.101",
+        "port": 43386,
+        "time": "10.12.2024 17:27:40"
+    },
+    {
+        "event_code": "EUF",
+        "event_description": "User request file",
+        "ip": "192.168.1.101",
+        "port": 43386,
+        "file": "./server/files/deneme3.txt",
+        "time": "10.12.2024 17:28:00"
+    },
+    {
+        "event_code": "EUDF",
+        "event_description": "User download file",
+        "ip": "192.168.1.101",
+        "port": 43386,
+        "file": "./server/files/5saniyee.txt",
+        "time": "10.12.2024 18:28:18"
+    },
+    {
+        "event_code": "EUE",
+        "event_descrtiption": "User exit from server",
+        "ip": "192.168.1.101",
+        "port": 43386,
+        "time": "10.12.2024 18:30:18"
+    },
+    {
+        "event_code": "EUSL",
+        "event_description": "User enter to server successfully",
+        "ip": "192.168.1.101",
+        "port": 59350,
+        "time": "10.12.2024 18:30:36"
+    },
+    {
+        "event_code": "EUE",
+        "event_descrtiption": "User exit from server",
+        "ip": "192.168.1.101",
+        "port": 59350,
+        "time": "10.12.2024 18:30:49"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "10.12.2024 19:20:21"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "10.12.2024 19:20:23"
+    },
+    {
+        "event_code": "ESLS",
+        "event_description": "Server listen started",
+        "time": "10.12.2024 19:20:25"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "10.12.2024 19:23:23"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "10.12.2024 19:23:34"
+    },
+    {
+        "event_code": "ESLS",
+        "event_description": "Server listen started",
+        "time": "10.12.2024 19:23:39"
+    },
+    {
+        "event_code": "EUSL",
+        "event_description": "User enter to server successfully",
+        "ip": "192.168.1.101",
+        "port": 54412,
+        "time": "10.12.2024 19:23:57"
+    },
+    {
+        "event_code": "EUSL",
+        "event_description": "User enter to server successfully",
+        "ip": "192.168.1.101",
+        "port": 51036,
+        "time": "10.12.2024 19:31:46"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "10.12.2024 19:41:47"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "10.12.2024 19:41:48"
+    },
+    {
+        "event_code": "ESLS",
+        "event_description": "Server listen started",
+        "time": "10.12.2024 19:41:50"
+    },
+    {
+        "event_code": "EUSL",
+        "event_description": "User enter to server successfully",
+        "ip": "192.168.1.101",
+        "port": 60524,
+        "time": "10.12.2024 19:41:55"
+    },
+    {
+        "event_code": "EUAF",
+        "event_description": "User request all files",
+        "ip": "192.168.1.101",
+        "port": 60524,
+        "time": "10.12.2024 19:42:02"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "10.12.2024 19:42:59"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "10.12.2024 19:43:01"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "10.12.2024 19:43:07"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "10.12.2024 19:43:10"
+    },
+    {
+        "event_code": "ESLS",
+        "event_description": "Server listen started",
+        "time": "10.12.2024 19:43:12"
+    },
+    {
+        "event_code": "EUSL",
+        "event_description": "User enter to server successfully",
+        "ip": "192.168.1.101",
+        "port": 59836,
+        "time": "10.12.2024 19:43:18"
+    },
+    {
+        "event_code": "EUAF",
+        "event_description": "User request all files",
+        "ip": "192.168.1.101",
+        "port": 59836,
+        "time": "10.12.2024 19:43:20"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "10.12.2024 19:43:50"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "10.12.2024 19:43:52"
+    },
+    {
+        "event_code": "ESLS",
+        "event_description": "Server listen started",
+        "time": "10.12.2024 19:43:54"
+    },
+    {
+        "event_code": "EUSL",
+        "event_description": "User enter to server successfully",
+        "ip": "192.168.1.101",
+        "port": 54452,
+        "time": "10.12.2024 19:43:58"
+    },
+    {
+        "event_code": "EUAF",
+        "event_description": "User request all files",
+        "ip": "192.168.1.101",
+        "port": 54452,
+        "time": "10.12.2024 19:44:00"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "10.12.2024 19:52:18"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "10.12.2024 19:52:21"
+    },
+    {
+        "event_code": "ESLS",
+        "event_description": "Server listen started",
+        "time": "10.12.2024 19:52:23"
+    },
+    {
+        "event_code": "EUSL",
+        "event_description": "User enter to server successfully",
+        "ip": "192.168.1.101",
+        "port": 35746,
+        "time": "10.12.2024 19:52:27"
+    },
+    {
+        "event_code": "EUAF",
+        "event_description": "User request all files",
+        "ip": "192.168.1.101",
+        "port": 35746,
+        "time": "10.12.2024 19:52:30"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "10.12.2024 19:57:02"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "10.12.2024 20:02:17"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "10.12.2024 20:02:19"
+    },
+    {
+        "event_code": "ESLS",
+        "event_description": "Server listen started",
+        "time": "10.12.2024 20:02:22"
+    },
+    {
+        "event_code": "EUSL",
+        "event_description": "User enter to server successfully",
+        "ip": "192.168.1.101",
+        "port": 44780,
+        "time": "10.12.2024 20:02:30"
+    },
+    {
+        "event_code": "EUAF",
+        "event_description": "User request all files",
+        "ip": "192.168.1.101",
+        "port": 44780,
+        "time": "10.12.2024 20:02:33"
+    },
+    {
+        "event_code": "EUSL",
+        "event_description": "User enter to server successfully",
+        "ip": "192.168.1.101",
+        "port": 58756,
+        "time": "10.12.2024 20:08:31"
+    },
+    {
+        "event_code": "EUAF",
+        "event_description": "User request all files",
+        "ip": "192.168.1.101",
+        "port": 58756,
+        "time": "10.12.2024 20:08:33"
+    },
+    {
+        "event_code": "EUDF",
+        "event_description": "User download file",
+        "ip": "192.168.1.101",
+        "port": 58756,
+        "file": "./server/files/5saniyee.txt",
+        "time": "10.12.2024 20:09:46"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "10.12.2024 20:11:38"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "10.12.2024 20:11:40"
+    },
+    {
+        "event_code": "ESLS",
+        "event_description": "Server listen started",
+        "time": "10.12.2024 20:11:43"
+    },
+    {
+        "event_code": "EUSL",
+        "event_description": "User enter to server successfully",
+        "ip": "192.168.1.101",
+        "port": 37128,
+        "time": "10.12.2024 20:11:49"
+    },
+    {
+        "event_code": "EUAF",
+        "event_description": "User request all files",
+        "ip": "192.168.1.101",
+        "port": 37128,
+        "time": "10.12.2024 20:11:56"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "10.12.2024 20:12:56"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "10.12.2024 20:12:58"
+    },
+    {
+        "event_code": "ESLS",
+        "event_description": "Server listen started",
+        "time": "10.12.2024 20:13:00"
+    },
+    {
+        "event_code": "EUSL",
+        "event_description": "User enter to server successfully",
+        "ip": "192.168.1.101",
+        "port": 44790,
+        "time": "10.12.2024 20:13:11"
+    },
+    {
+        "event_code": "EUAF",
+        "event_description": "User request all files",
+        "ip": "192.168.1.101",
+        "port": 44790,
+        "time": "10.12.2024 20:13:23"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "10.12.2024 20:14:24"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "10.12.2024 20:14:26"
+    },
+    {
+        "event_code": "ESLS",
+        "event_description": "Server listen started",
+        "time": "10.12.2024 20:14:28"
+    },
+    {
+        "event_code": "EUSL",
+        "event_description": "User enter to server successfully",
+        "ip": "192.168.1.101",
+        "port": 48390,
+        "time": "10.12.2024 20:14:37"
+    },
+    {
+        "event_code": "EUAF",
+        "event_description": "User request all files",
+        "ip": "192.168.1.101",
+        "port": 48390,
+        "time": "10.12.2024 20:14:39"
+    },
+    {
+        "event_code": "EUDF",
+        "event_description": "User download file",
+        "ip": "192.168.1.101",
+        "port": 48390,
+        "file": "./server/files/5saniyee.txt",
+        "time": "10.12.2024 20:14:43"
+    },
+    {
+        "event_code": "EUDF",
+        "event_description": "User download file",
+        "ip": "192.168.1.101",
+        "port": 48390,
+        "file": "./server/files/5saniyee.txt",
+        "time": "10.12.2024 20:14:48"
+    },
+    {
+        "event_code": "EUDF",
+        "event_description": "User download file",
+        "ip": "192.168.1.101",
+        "port": 48390,
+        "file": "./server/files/1GB.bin",
+        "time": "10.12.2024 20:15:00"
+    },
+    {
+        "event_code": "EUDF",
+        "event_description": "User download file",
+        "ip": "192.168.1.101",
+        "port": 48390,
+        "file": "./server/files/deneme3.txt",
+        "time": "10.12.2024 20:22:35"
+    },
+    {
+        "event_code": "EUDF",
+        "event_description": "User download file",
+        "ip": "192.168.1.101",
+        "port": 48390,
+        "file": "./server/files/1GB.bin",
+        "time": "10.12.2024 20:22:45"
+    },
+    {
+        "event_code": "EUDF",
+        "event_description": "User download file",
+        "ip": "192.168.1.101",
+        "port": 48390,
+        "file": "./server/files/1GB.bin",
+        "time": "10.12.2024 20:22:54"
+    },
+    {
+        "event_code": "EUDF",
+        "event_description": "User download file",
+        "ip": "192.168.1.101",
+        "port": 48390,
+        "file": "./server/files/1GB.bin",
+        "time": "10.12.2024 20:24:08"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "10.12.2024 20:27:02"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "10.12.2024 20:27:04"
+    },
+    {
+        "event_code": "ESLS",
+        "event_description": "Server listen started",
+        "time": "10.12.2024 20:27:06"
+    },
+    {
+        "event_code": "EUSL",
+        "event_description": "User enter to server successfully",
+        "ip": "192.168.1.101",
+        "port": 38418,
+        "time": "10.12.2024 20:27:13"
+    },
+    {
+        "event_code": "EUAF",
+        "event_description": "User request all files",
+        "ip": "192.168.1.101",
+        "port": 38418,
+        "time": "10.12.2024 20:27:15"
+    },
+    {
+        "event_code": "EUDF",
+        "event_description": "User download file",
+        "ip": "192.168.1.101",
+        "port": 38418,
+        "file": "./server/files/1GB.bin",
+        "time": "10.12.2024 20:27:23"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "10.12.2024 20:29:11"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "10.12.2024 20:29:13"
+    },
+    {
+        "event_code": "ESLS",
+        "event_description": "Server listen started",
+        "time": "10.12.2024 20:29:15"
+    },
+    {
+        "event_code": "EUSL",
+        "event_description": "User enter to server successfully",
+        "ip": "192.168.1.101",
+        "port": 50376,
+        "time": "10.12.2024 20:29:22"
+    },
+    {
+        "event_code": "EUAF",
+        "event_description": "User request all files",
+        "ip": "192.168.1.101",
+        "port": 50376,
+        "time": "10.12.2024 20:29:24"
+    },
+    {
+        "event_code": "EUDF",
+        "event_description": "User download file",
+        "ip": "192.168.1.101",
+        "port": 50376,
+        "file": "./server/files/1GB.bin",
+        "time": "10.12.2024 20:29:32"
+    },
+    {
+        "event_code": "EUDF",
+        "event_description": "User download file",
+        "ip": "192.168.1.101",
+        "port": 50376,
+        "file": "./server/files/deneme3.txt",
+        "time": "10.12.2024 20:29:53"
+    },
+    {
+        "event_code": "EUDF",
+        "event_description": "User download file",
+        "ip": "192.168.1.101",
+        "port": 50376,
+        "file": "./server/files/5saniyee.txt",
+        "time": "10.12.2024 20:29:56"
+    },
+    {
+        "event_code": "EUDF",
+        "event_description": "User download file",
+        "ip": "192.168.1.101",
+        "port": 50376,
+        "file": "./server/files/deneme2.txt",
+        "time": "10.12.2024 20:29:58"
+    },
+    {
+        "event_code": "EUDF",
+        "event_description": "User download file",
+        "ip": "192.168.1.101",
+        "port": 50376,
+        "file": "./server/files/deneme1.txt",
+        "time": "10.12.2024 20:30:03"
+    },
+    {
+        "event_code": "EUAF",
+        "event_description": "User request all files",
+        "ip": "192.168.1.101",
+        "port": 50376,
+        "time": "10.12.2024 20:31:31"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "10.12.2024 23:24:21"
     }
 ]
