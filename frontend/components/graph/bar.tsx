@@ -7,13 +7,13 @@ const Bar = dynamic(() => import("react-chartjs-2").then((mod) => mod.Bar), {
 });
 
 interface BarChartProps {
-    title: string; 
-    conn_inf: { [date: string]: number }; 
+    title: string;
+    conn_inf: { [date: string]: number };
 }
 
 export const BarChart = ({ title, conn_inf }: BarChartProps) => {
-    const labels = Object.keys(conn_inf); 
-    const dataValues = Object.values(conn_inf); 
+    const labels = Object.keys(conn_inf);
+    const dataValues = Object.values(conn_inf);
     const barColors = [
         "rgba(255, 99, 132, 0.5)",
         "rgba(54, 162, 235, 0.5)",
@@ -27,7 +27,8 @@ export const BarChart = ({ title, conn_inf }: BarChartProps) => {
         labels,
         datasets: [
             {
-                label: title, 
+                title: title,
+                label: title,
                 data: dataValues,
                 backgroundColor: barColors.slice(0, dataValues.length),
                 borderColor: barColors.slice(0, dataValues.length).map((color) =>

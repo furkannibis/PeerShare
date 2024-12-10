@@ -1,150 +1,137 @@
-export interface MessageInfoInterface {
+interface messageInfoProps {
     message_code: string
     message: string
 }
 
-export interface ServiceInfoInterface {
-    public_ip: string | null
-    ip: string
+interface serverInfoProps {
+    ip: string | null
     port: number | null
-    server_status: string
+    wan_ip: string
 }
 
-export interface ErrorInfoInterface {
+interface serverStatusProps {
+    server_binding: boolean
+    server_listening: boolean
+}
+
+interface errorInfoProps {
     error_code: string
     error_desc: string
 }
 
-export interface NICSInterface {
-    interface: string
-    ipv4: string
-    netmask: string
-    broadcast: string | null
-    gateway: string | null
-}
-
-export interface NetworkInterfacesInterface {
+export interface createSocketProps {
     status_code: number
     status: string
-    message_info: MessageInfoInterface
-    service_info: ServiceInfoInterface
-    network_interfaces: NICSInterface[]
+    message_info: messageInfoProps
+    server_info: serverInfoProps
+    server_status: serverStatusProps
 }
 
-export interface ServerStatusInterface {
-    status_code: number
-    status: string
-    message_info: MessageInfoInterface
-    service_info: ServiceInfoInterface
-}
-
-export interface StartServerInputInterface {
-    nic: string | null
-    port: number
-    password: string | null
-}
-
-export interface StartServerInterface {
-    status_code: 200
-    status: string
-    message_info: MessageInfoInterface
-    service_info: ServiceInfoInterface
-}
-
-export interface StartServerExceptionInterface {
-    status_code: number
-    status: string
-    err_info: ErrorInfoInterface
-    service_info: ServiceInfoInterface
-}
-
-export type StartServerResponse = StartServerInterface | StartServerExceptionInterface;
-
-export interface StartListenInterface {
-    status_code: number
-    status: string
-    message_info: MessageInfoInterface
-    service_info: ServiceInfoInterface
-}
-
-export interface StartListenExceptionInterface {
-    status_code: number
-    status: string
-    err_info: ErrorInfoInterface
-    service_info: ServiceInfoInterface
-}
-
-export type StartListenResponse = StartListenInterface | StartListenExceptionInterface
-
-export interface StopServerInterface {
-    status_code: number
-    status: string
-    message_info: MessageInfoInterface
-    service_info: ServiceInfoInterface
-}
-
-export interface StopServerExceptionInterface {
-    status_code: number
-    status: string
-    err_info: ErrorInfoInterface
-    service_info: ServiceInfoInterface
-}
-
-export type StopServerResponse = StopServerInterface | StopServerExceptionInterface
-
-export interface ConnectedDevicesAddrInterface {
+export interface bindInputProps {
     ip: string
     port: number
+    password: string
+    max_conn_count: number
 }
 
-export interface ConnectedDevicesInterface {
+interface bindMessageProps {
     status_code: number
     status: string
-    message_info: MessageInfoInterface
-    service_info: ServiceInfoInterface
-    connected_devices_addr: ConnectedDevicesAddrInterface[]
+    message_info: messageInfoProps
+    server_info: serverInfoProps
+    server_status: serverStatusProps
 }
 
-export interface ConnectedDevicesExceptionInterface {
+interface bindExceptionProps {
     status_code: number
     status: string
-    err_info: ErrorInfoInterface
-    service_info: ServiceInfoInterface
+    err_info: errorInfoProps
+    server_info: serverInfoProps
+    server_status: serverStatusProps
 }
 
-export type ConnectedDeviceResponse = ConnectedDevicesInterface | ConnectedDevicesExceptionInterface
+export type bindResponseProps = bindMessageProps | bindExceptionProps
 
-export interface fileListInterface {
-    fileName: string
-    fileType: string
-    fileSize: string
-}
-
-export interface SharedFilesInterface {
+interface listenMessageProps {
     status_code: number
     status: string
-    message_info: MessageInfoInterface
-    service_info: ServiceInfoInterface
-    file_list: fileListInterface[]
+    message_info: messageInfoProps
+    server_info: serverInfoProps
+    server_status: serverStatusProps
 }
 
-export interface SharedFilesExceptionInterface {
+interface listenExceptionProps {
     status_code: number
     status: string
-    err_info: ErrorInfoInterface
-    service_info: ServiceInfoInterface
+    err_info: errorInfoProps
+    server_info: serverInfoProps
+    server_status: serverStatusProps
 }
 
-export type SharedFilesResponse = SharedFilesInterface | SharedFilesExceptionInterface
+export type listenResponseProps = listenMessageProps | listenExceptionProps
 
-export interface ConnectedDeviceCountInfoInterface {
-    conn_inf: { [date: string]: number }
-}
-
-export interface ConnectedDeviceCountInterface {
+interface stopMessageProps {
     status_code: number
     status: string
-    message_info: MessageInfoInterface
-    service_info: ServiceInfoInterface
-    conn_inf: ConnectedDeviceCountInfoInterface
+    message_info: messageInfoProps
+    server_info: serverInfoProps
+    server_status: serverStatusProps
+}
+
+interface stopExceptionProps {
+    status_code: number
+    status: string
+    err_info: errorInfoProps
+    server_info: serverInfoProps
+    server_status: serverStatusProps
+}
+
+export type stopResponseProps = stopMessageProps | stopExceptionProps
+
+export interface weeklyReportProps {
+    [date: string]: number
+}
+
+export interface dailyReportProps {
+    [key: string]: number
+}
+
+export interface statusProps {
+    status_code: number
+    status: string
+    message_info: messageInfoProps
+    server_info: serverInfoProps
+    server_status: serverStatusProps
+}
+
+interface devicesProps {
+    ip: string
+    port: number
+    connected_time: string
+    downloaded_size: number
+}
+
+export interface connectedDevicesProps {
+    status_code: number
+    status: string
+    message_info: messageInfoProps
+    server_info: serverInfoProps
+    server_status: serverStatusProps
+    devices: devicesProps[]
+}
+
+interface filesProps {
+    file_name: string
+    file_size: number
+    file_type: string
+    downloaded_count: number
+}
+
+export interface filesInformationProps {
+    status_code: number
+    status: string
+    message_info: messageInfoProps
+    server_info: serverInfoProps
+    server_status: serverStatusProps
+    files: filesProps[]
 }

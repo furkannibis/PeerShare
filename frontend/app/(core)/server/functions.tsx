@@ -1,84 +1,75 @@
-import { NetworkInterfacesInterface, ServerStatusInterface, SharedFilesExceptionInterface, SharedFilesInterface, SharedFilesResponse } from "./interfaces";
-import { StartServerInputInterface, StartServerInterface, StartServerExceptionInterface } from "./interfaces";
-import { StartListenResponse, StartListenInterface, StartListenExceptionInterface } from "./interfaces";
-import { StopServerResponse, StopServerInterface, StopServerExceptionInterface } from "./interfaces";
-import { ConnectedDeviceResponse, ConnectedDevicesInterface, ConnectedDevicesExceptionInterface } from "./interfaces";
-import { ConnectedDeviceCountInterface } from "./interfaces";
+import { createSocketProps } from "./interfaces";
+import { bindInputProps, bindResponseProps } from "./interfaces";
+import { listenResponseProps } from "./interfaces";
+import { stopResponseProps } from "./interfaces";
+import { weeklyReportProps } from "./interfaces";
+import { dailyReportProps } from "./interfaces";
+import { statusProps } from "./interfaces";
+import { connectedDevicesProps } from "./interfaces";
+import { filesInformationProps } from "./interfaces";
 
-export async function getNetworkInterface(): Promise<NetworkInterfacesInterface> {
-    const response = await fetch('http://localhost:8000/server/network-interfaces');
+export async function createServerSocket(): Promise<createSocketProps> {
+    const response = await fetch('http://localhost:8000/server/create-socket');
     const data = await response.json();
-    return data as NetworkInterfacesInterface
+    return data as createSocketProps;
 }
 
-export async function getServerStatus(): Promise<ServerStatusInterface> {
-    const response = await fetch('http://localhost:8000/server/server-status');
-    const data = await response.json();
-    return data as ServerStatusInterface
-}
-
-export async function startServer({ nic, port, password }: StartServerInputInterface): Promise<StartServerInterface | StartServerExceptionInterface> {
-    const response = await fetch('http://localhost:8000/server/start-server', {
+export async function startServerBind({ ip, port, password, max_conn_count }: bindInputProps): Promise<bindResponseProps> {
+    const response = await fetch('http://localhost:8000/server/start-bind', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ interface: nic, port, password }),
+        body: JSON.stringify({
+            ip,
+            port,
+            password,
+            max_conn_count,
+        }),
     });
 
     const data = await response.json();
-    return data;
+    return data as bindResponseProps;
 }
 
-export async function startListen(): Promise<StartListenInterface | StartListenExceptionInterface> {
-    const response = await fetch('http://localhost:8000/server/start-listening');
+export async function startServerListen(): Promise<listenResponseProps> {
+    const response = await fetch('http://localhost:8000/server/start-listen');
     const data = await response.json();
-    return data as StartListenResponse
+    return data as listenResponseProps;
 }
 
-export async function stopServer(): Promise<StopServerInterface | StopServerExceptionInterface> {
+export async function stopServer(): Promise<stopResponseProps> {
     const response = await fetch('http://localhost:8000/server/stop-server');
     const data = await response.json();
-    return data as StopServerResponse
+    return data as stopResponseProps;
 }
 
-export async function connectedDevicesF(): Promise<ConnectedDevicesInterface | ConnectedDevicesExceptionInterface> {
-
-    const ip = localStorage.getItem('ip');
-    const port = Number(localStorage.getItem('port'));
-    const password = localStorage.getItem('password');
-    // console.log(ip, port, password)
-    const response = await fetch('http://localhost:8000/server/connected-devices', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ ip, port, password }),
-    });
-    const data = await response.json();
-    console.log(data)
-    return data as ConnectedDeviceResponse;
+export async function weeklyStat(): Promise<weeklyReportProps> {
+    const response = await fetch('http://localhost:8000/server/server-weekly-stat');
+    const data = await response.json()
+    return data as weeklyReportProps;
 }
 
-export async function sharedFiles(): Promise<SharedFilesInterface | SharedFilesExceptionInterface> {
-    const ip = localStorage.getItem('ip');
-    const port = Number(localStorage.getItem('port'));
-    const password = localStorage.getItem('password');
-    const response = await fetch('http://localhost:8000/server/shared-files', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ ip, port, password }),
-    });
-
+export async function dailyStat(): Promise<dailyReportProps> {
+    const response = await fetch('http://localhost:8000/server/server-daily-stat');
     const data = await response.json();
-    console.log(data)
-    return data as SharedFilesResponse;
+    return data as dailyReportProps;
 }
 
-export async function connectedDeviceCountByDate(): Promise<ConnectedDeviceCountInterface> {
-    const response = await fetch('http://localhost:8000/server/connected-device-by-date');
+export async function serverStatus(): Promise<statusProps> {
+    const response = await fetch('http://127.0.0.1:8000/server/server-status');
     const data = await response.json();
-    return data as ConnectedDeviceCountInterface
+    return data as statusProps;
+}
+
+export async function connectedDevices(): Promise<connectedDevicesProps> {
+    const response = await fetch('http://127.0.0.1:8000/server/connected-devices');
+    const data = await response.json();
+    return data as connectedDevicesProps;
+}
+
+export async function filesInformation(): Promise<filesInformationProps> {
+    const response = await fetch('http://127.0.0.1:8000/server/shared-files');
+    const data = await response.json();
+    return data as filesInformationProps;
 }
