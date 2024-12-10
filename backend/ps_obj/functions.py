@@ -1,9 +1,12 @@
 from os import listdir, stat, path
 import mimetypes
+import json
+from typing import Union
+from io import StringIO
 
 def show_files(file_path_or_buffer: str) -> list:
     try:
-        return [path.join(file_path_or_buffer, f) for f in listdir(file_path_or_buffer)]
+        return [f for f in listdir(file_path_or_buffer)]
     except FileNotFoundError:
         print(f"Error: Path '{file_path_or_buffer}' does not exist.")
         return []
@@ -53,3 +56,30 @@ def file_info(file_path_or_buffer: str):
 
 def file_size(file_path_or_buffer: str) -> int:
     return path.getsize(file_path_or_buffer)
+
+def find_downloaded_count(file_name: str, file_path_or_buffer: Union[str, StringIO] = './server/event/event.json') -> int:
+    if isinstance(file_path_or_buffer, str):
+        with open(file_path_or_buffer, 'r') as file:
+            events = json.load(file)
+    elif isinstance(file_path_or_buffer, StringIO):
+        file_path_or_buffer.seek(0)
+        events = json.load(file_path_or_buffer)
+    else:
+        raise ValueError("Unsupported input type. Provide a file path or StringIO buffer.")
+    download_events = [
+        event for event in events if event.get("event_code") == "EUDF" and event.get("file") == file_name
+    ]
+    return len(download_events)
+
+
+def show_files_for_server(file_path_or_buffer: str):
+    files_stats = []
+    files = show_files(file_path_or_buffer=file_path_or_buffer)
+    for file in files:
+        files_stats.append({
+            'file_name': file,
+            'file_size': file_size(file_path_or_buffer=file_path_or_buffer+file),
+            'file_type': file_type(file_path_or_buffer=file_path_or_buffer+file),
+            'downloaded_count': find_downloaded_count(file_path_or_buffer+file)
+        })
+    return files_stats
