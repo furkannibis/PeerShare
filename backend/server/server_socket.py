@@ -7,7 +7,7 @@ import os
 from ps_obj.functions import show_files, file_info, show_files_for_server, send_files_to_client
 from ps_obj.psMessage import PeerShareServerMessage, PeerShareServerException
 
-from server.functions import write_to_event, wan_ip
+from server.functions import write_to_event, wan_ip, server_week_stat, hourly_user_stat
 
 class ConnectedClient:
     def __init__(self, ip: str, port: int, password: str, socket_conn: socket.socket):
@@ -35,38 +35,48 @@ class Server(socket.socket):
 
     def start_bind(self, ip: str, port: int, password: str, max_conn_count: int):
         if self.binding:
-            self.message = PeerShareServerException(status_code=404, status='failed', err_code='E000', err_desc='The server is already in bind mode.', wan_ip=self.wan_ip, ip=self.ip, port=self.port, server_binding=self.binding, server_listening=self.listening)
+            self.message = PeerShareServerException(status_code=409, status='failed', err_code='E001', err_desc='The server is already in bind mode.', wan_ip=self.wan_ip, ip=self.ip, port=self.port, server_binding=self.binding, server_listening=self.listening)
         else:
-            self.binding = True
-            self.ip = ip
-            self.port = port
-            self.password = password
-            self.max_conn_count = max_conn_count
-            self.bind((self.ip, self.port))
+            try:
+                self.bind((ip, port))
+                self.binding = True
+                self.ip = ip
+                self.port = port
+                self.password = password
+                self.max_conn_count = max_conn_count
+                write_to_event({'event_code': 'ESBS', 'event_description': 'Server bind started'})
+                self.message = PeerShareServerMessage(status_code=200, status='success', message_code='M001', message='The server\'s bind mode has been activated successfully.', wan_ip=self.wan_ip, ip=self.ip, port=self.port, server_binding=self.binding, server_listening=self.listening)
+            except Exception as err:
+                print(err)
+                self.message = PeerShareServerException(status_code=400, status='failed', err_code='E004', err_desc='The IP you assigned to the network interface cards in your system could not be accessed. Please enter a valid IP address.', wan_ip=self.wan_ip, ip=self.ip, port=self.port, server_binding=self.binding, server_listening=self.listening)
 
-            write_to_event({'event_code': 'ESBS', 'event_description': 'Server bind started'})
-            self.message = PeerShareServerMessage(status_code=200, status='success', message_code='M001', message='The server\'s bind mode has been activated successfully.', wan_ip=self.wan_ip, ip=self.ip, port=self.port, server_binding=self.binding, server_listening=self.listening)
-
+           
     def start_listen(self):
-        if self.listening:
-            self.message = PeerShareServerException(status_code=404, status='failed', err_code='E001', err_desc='The server is already in listening mode.', wan_ip=self.wan_ip, ip=self.ip, port=self.port, server_binding=self.binding, server_listening=self.listening)
+        if self.binding:
+            if self.listening:
+                self.message = PeerShareServerException(status_code=409, status='failed', err_code='E003', err_desc='The server is already in listening mode.', wan_ip=self.wan_ip, ip=self.ip, port=self.port, server_binding=self.binding, server_listening=self.listening)
+            else:
+                self.listening = True
+                self.message = PeerShareServerMessage(status_code=200, status='success', message_code='M002', message=f'The server was successfully put into listening mode. The number of users that can connect is set to {self.max_conn_count}.', wan_ip=self.wan_ip, ip=self.ip, port=self.port, server_binding=self.binding, server_listening=self.listening)
+                self.listen(self.max_conn_count)
+                write_to_event({'event_code': 'ESLS', 'event_description': 'Server listen started'})
+                threading.Thread(target=self.accept_connections, daemon=True).start()
         else:
-            self.listening = True
-            self.listen(self.max_conn_count)
-            threading.Thread(target=self.accept_connections, daemon=True).start()
-            write_to_event({'event_code': 'ESLS', 'event_description': 'Server listen started'})
-            self.message = PeerShareServerMessage(status_code=200, status='success', message_code='M002', message=f'The server was successfully put into listening mode. The number of users that can connect is set to {self.max_conn_count}.', wan_ip=self.wan_ip, ip=self.ip, port=self.port, server_binding=self.binding, server_listening=self.listening)
+            return PeerShareServerException(status_code=400, status='failed', err_code='E002', err_desc='To put the server in list mode, you need to activate bind mode.', wan_ip=self.wan_ip, ip=self.ip, port=self.port, server_binding=self.binding, server_listening=self.listening)
 
     def close_server(self):
-        self.ip = None
-        self.port = None
-        self.password = None
-        self.connected_devices = []
-        self.binding = False
-        self.listening = False
-        self.close()
-        write_to_event({'event_code': 'ESC', 'event_description': 'Server closed'})
-        self.message = PeerShareServerMessage(status_code=200, status='success', message_code='M003', message=f'The server was shut down successfully.', wan_ip=self.wan_ip, ip=self.ip, port=self.port, server_binding=self.binding, server_listening=self.listening)
+        if self.binding and self.listening:
+            self.ip = None
+            self.port = None
+            self.password = None
+            self.connected_devices = []
+            self.binding = False
+            self.listening = False
+            self.close()
+            write_to_event({'event_code': 'ESC', 'event_description': 'Server closed'})
+            self.message = PeerShareServerMessage(status_code=200, status='success', message_code='M003', message=f'The server was shut down successfully.', wan_ip=self.wan_ip, ip=self.ip, port=self.port, server_binding=self.binding, server_listening=self.listening)
+        else:
+            self.message = PeerShareServerException(status_code=503, status='failed', err_code='E005', err_desc='The server is currently down.', wan_ip=self.wan_ip, ip=self.ip, port=self.port, server_binding=self.binding, server_listening=self.listening)
 
     def accept_connections(self):
         try:
@@ -168,17 +178,37 @@ class Server(socket.socket):
     def server_status(self):
         self.message = PeerShareServerMessage(status_code=200, status='success', message_code='M004', message=f'Information about the server\'s status was successfully retrieved.', wan_ip=self.wan_ip, ip=self.ip, port=self.port, server_binding=self.binding, server_listening=self.listening)
 
+    def weekly_stat(self):
+        weekly_stat = server_week_stat('./server/event/event.json')
+        self.message = PeerShareServerMessage(status_code=200, status='success', message_code='M005', message='The server\'s weekly report was fetched successfully.', wan_ip=self.wan_ip, ip=self.ip, port=self.port, server_binding=self.binding, server_listening=self.listening, weekly_stat=weekly_stat)
+
+    def hourly_stat(self):
+        hourly_stat = hourly_user_stat('./server/event/event.json')
+        self.message = PeerShareServerMessage(status_code=200, status='success', message_code='M006', message='The server\'s hourly report was fetched successfully.', wan_ip=self.wan_ip, ip=self.ip, port=self.port, server_binding=self.binding, server_listening=self.listening, hourly_stat=hourly_stat)
+
     def show_connections(self):
-        devices_info = []
-        for connection in self.connected_devices:
-            devices_info.append({
-                'ip': connection.ip,
-                'port': connection.port,
-                'connected_time': connection.connected_time,
-                'downloaded_size': connection.downloaded_size
-                })
-        self.message = PeerShareServerMessage(status_code=200, status='success', message_code='M005', message=f'Information about the devices connected to the server has been transferred successfully.', wan_ip=self.wan_ip, ip=self.ip, port=self.port, server_binding=self.binding, server_listening=self.listening, devices=devices_info)
+        if self.binding:
+            if self.listening:
+                devices_info = []
+                for connection in self.connected_devices:
+                    devices_info.append({
+                        'ip': connection.ip,
+                        'port': connection.port,
+                        'connected_time': connection.connected_time,
+                        'downloaded_size': connection.downloaded_size
+                        })
+                self.message = PeerShareServerMessage(status_code=200, status='success', message_code='M005', message=f'Information about the devices connected to the server has been transferred successfully.', wan_ip=self.wan_ip, ip=self.ip, port=self.port, server_binding=self.binding, server_listening=self.listening, devices=devices_info)
+            else:
+                self.message = PeerShareServerException(status_code=400, status='failed', err_code='E007', err_desc='To see the connections, the server must be in listen mode.', wan_ip=self.wan_ip, ip=self.ip, port=self.port, server_binding=self.binding, server_listening=self.listening)
+        else:
+            self.message = PeerShareServerException(status_code=400, status='failed', err_code='E006', err_desc='To see the connections, the server must be in bind mode.', wan_ip=self.wan_ip, ip=self.ip, port=self.port, server_binding=self.binding, server_listening=self.listening)
 
     def show_shared_files(self):
-        files = show_files_for_server('./server/files/')
-        self.message = PeerShareServerMessage(status_code=200, status='success', message_code='M006', message=f'The requested file information for the server was successfully transmitted.', wan_ip=self.wan_ip, ip=self.ip, port=self.port, server_binding=self.binding, server_listening=self.listening, files=files)
+        if self.binding:
+            if self.listening:
+                files = show_files_for_server('./server/files/')
+                self.message = PeerShareServerMessage(status_code=200, status='success', message_code='M008', message=f'The requested file information for the server was successfully transmitted.', wan_ip=self.wan_ip, ip=self.ip, port=self.port, server_binding=self.binding, server_listening=self.listening, files=files)
+            else:
+                self.message = PeerShareServerException(status_code=400, status='failed', err_code='E009', err_desc='To see the connections, the server must be in listen mode.', wan_ip=self.wan_ip, ip=self.ip, port=self.port, server_binding=self.binding, server_listening=self.listening)
+        else:
+            self.message = PeerShareServerException(status_code=400, status='failed', err_code='E008', err_desc='In order to see the files shared by the server, the server must first be in bind mode.', wan_ip=self.wan_ip, ip=self.ip, port=self.port, server_binding=self.binding, server_listening=self.listening)

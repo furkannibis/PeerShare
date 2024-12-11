@@ -1249,5 +1249,665 @@
         "event_code": "ECSS",
         "event_description": "Server socket created",
         "time": "10.12.2024 23:24:21"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "11.12.2024 00:21:30"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "11.12.2024 00:21:53"
+    },
+    {
+        "event_code": "ESLS",
+        "event_description": "Server listen started",
+        "time": "11.12.2024 00:21:53"
+    },
+    {
+        "event_code": "EUSL",
+        "event_description": "User enter to server successfully",
+        "ip": "192.168.1.101",
+        "port": 48892,
+        "time": "11.12.2024 00:22:01"
+    },
+    {
+        "event_code": "EUSL",
+        "event_description": "User enter to server successfully",
+        "ip": "192.168.1.131",
+        "port": 50838,
+        "time": "11.12.2024 00:22:17"
+    },
+    {
+        "event_code": "EUAF",
+        "event_description": "User request all files",
+        "ip": "192.168.1.131",
+        "port": 50838,
+        "time": "11.12.2024 00:22:21"
+    },
+    {
+        "event_code": "EUDF",
+        "event_description": "User download file",
+        "ip": "192.168.1.131",
+        "port": 50838,
+        "file": "./server/files/1GB.bin",
+        "time": "11.12.2024 00:29:44"
+    },
+    {
+        "event_code": "EUDF",
+        "event_description": "User download file",
+        "ip": "192.168.1.131",
+        "port": 50838,
+        "file": "./server/files/deneme3.txt",
+        "time": "11.12.2024 00:29:55"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "11.12.2024 12:50:05"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "11.12.2024 12:50:14"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "11.12.2024 12:52:54"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "11.12.2024 12:53:57"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "11.12.2024 12:57:14"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "11.12.2024 13:24:39"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "11.12.2024 13:40:36"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "11.12.2024 13:41:56"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "11.12.2024 13:42:45"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "11.12.2024 13:43:09"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "11.12.2024 13:43:26"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "11.12.2024 13:44:08"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "11.12.2024 13:44:40"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "11.12.2024 13:44:44"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "11.12.2024 13:46:24"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "11.12.2024 13:46:31"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "11.12.2024 13:48:35"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "11.12.2024 13:48:38"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "11.12.2024 15:10:24"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "11.12.2024 15:10:26"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "11.12.2024 15:11:00"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "11.12.2024 15:11:01"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "11.12.2024 15:11:32"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "11.12.2024 15:11:33"
+    },
+    {
+        "event_code": "ESLS",
+        "event_description": "Server listen started",
+        "time": "11.12.2024 15:11:37"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "11.12.2024 15:11:49"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "11.12.2024 15:11:55"
+    },
+    {
+        "event_code": "ESLS",
+        "event_description": "Server listen started",
+        "time": "11.12.2024 15:11:56"
+    },
+    {
+        "event_code": "ESC",
+        "event_description": "Server closed",
+        "time": "11.12.2024 15:24:38"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "11.12.2024 15:25:58"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "11.12.2024 15:26:04"
+    },
+    {
+        "event_code": "ESLS",
+        "event_description": "Server listen started",
+        "time": "11.12.2024 15:26:05"
+    },
+    {
+        "event_code": "ESC",
+        "event_description": "Server closed",
+        "time": "11.12.2024 15:26:06"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "11.12.2024 15:28:04"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "11.12.2024 15:28:10"
+    },
+    {
+        "event_code": "ESLS",
+        "event_description": "Server listen started",
+        "time": "11.12.2024 15:28:11"
+    },
+    {
+        "event_code": "ESC",
+        "event_description": "Server closed",
+        "time": "11.12.2024 15:28:13"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "11.12.2024 15:28:14"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "11.12.2024 15:28:42"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "11.12.2024 15:28:48"
+    },
+    {
+        "event_code": "ESLS",
+        "event_description": "Server listen started",
+        "time": "11.12.2024 15:28:48"
+    },
+    {
+        "event_code": "ESC",
+        "event_description": "Server closed",
+        "time": "11.12.2024 15:28:49"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "11.12.2024 15:28:50"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "11.12.2024 15:30:30"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "11.12.2024 15:30:59"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "11.12.2024 15:31:05"
+    },
+    {
+        "event_code": "ESLS",
+        "event_description": "Server listen started",
+        "time": "11.12.2024 15:31:06"
+    },
+    {
+        "event_code": "EUSL",
+        "event_description": "User enter to server successfully",
+        "ip": "192.168.1.101",
+        "port": 37122,
+        "time": "11.12.2024 15:31:13"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "11.12.2024 15:31:26"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "11.12.2024 15:31:28"
+    },
+    {
+        "event_code": "ESLS",
+        "event_description": "Server listen started",
+        "time": "11.12.2024 15:31:31"
+    },
+    {
+        "event_code": "EUSL",
+        "event_description": "User enter to server successfully",
+        "ip": "192.168.1.101",
+        "port": 45878,
+        "time": "11.12.2024 15:39:06"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "11.12.2024 15:57:11"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "11.12.2024 15:57:22"
+    },
+    {
+        "event_code": "ESLS",
+        "event_description": "Server listen started",
+        "time": "11.12.2024 15:57:22"
+    },
+    {
+        "event_code": "EUSL",
+        "event_description": "User enter to server successfully",
+        "ip": "192.168.1.101",
+        "port": 46942,
+        "time": "11.12.2024 15:57:30"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "11.12.2024 15:59:15"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "11.12.2024 15:59:17"
+    },
+    {
+        "event_code": "ESLS",
+        "event_description": "Server listen started",
+        "time": "11.12.2024 15:59:19"
+    },
+    {
+        "event_code": "EUSL",
+        "event_description": "User enter to server successfully",
+        "ip": "192.168.1.101",
+        "port": 48548,
+        "time": "11.12.2024 15:59:27"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "11.12.2024 16:01:10"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "11.12.2024 16:01:17"
+    },
+    {
+        "event_code": "ESLS",
+        "event_description": "Server listen started",
+        "time": "11.12.2024 16:01:18"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "11.12.2024 16:05:37"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "11.12.2024 16:05:43"
+    },
+    {
+        "event_code": "ESLS",
+        "event_description": "Server listen started",
+        "time": "11.12.2024 16:05:43"
+    },
+    {
+        "event_code": "EUWP",
+        "event_description": "User enter wrong password",
+        "ip": "192.168.1.101",
+        "port": 56318,
+        "time": "11.12.2024 16:05:54"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "11.12.2024 16:06:11"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "11.12.2024 16:06:17"
+    },
+    {
+        "event_code": "ESLS",
+        "event_description": "Server listen started",
+        "time": "11.12.2024 16:06:17"
+    },
+    {
+        "event_code": "EUWP",
+        "event_description": "User enter wrong password",
+        "ip": "192.168.1.101",
+        "port": 53404,
+        "time": "11.12.2024 16:06:27"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "11.12.2024 16:06:58"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "11.12.2024 16:07:03"
+    },
+    {
+        "event_code": "ESLS",
+        "event_description": "Server listen started",
+        "time": "11.12.2024 16:07:03"
+    },
+    {
+        "event_code": "EUWP",
+        "event_description": "User enter wrong password",
+        "ip": "192.168.1.101",
+        "port": 39012,
+        "time": "11.12.2024 16:07:17"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "11.12.2024 16:07:37"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "11.12.2024 16:07:42"
+    },
+    {
+        "event_code": "ESLS",
+        "event_description": "Server listen started",
+        "time": "11.12.2024 16:07:43"
+    },
+    {
+        "event_code": "EUWP",
+        "event_description": "User enter wrong password",
+        "ip": "192.168.1.101",
+        "port": 54108,
+        "time": "11.12.2024 16:07:52"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "11.12.2024 16:12:16"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "11.12.2024 16:12:18"
+    },
+    {
+        "event_code": "ESLS",
+        "event_description": "Server listen started",
+        "time": "11.12.2024 16:12:19"
+    },
+    {
+        "event_code": "EUWP",
+        "event_description": "User enter wrong password",
+        "ip": "192.168.1.101",
+        "port": 34016,
+        "time": "11.12.2024 16:12:33"
+    },
+    {
+        "event_code": "EUSL",
+        "event_description": "User enter to server successfully",
+        "ip": "192.168.1.101",
+        "port": 36776,
+        "time": "11.12.2024 16:14:09"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "11.12.2024 16:15:47"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "11.12.2024 16:15:51"
+    },
+    {
+        "event_code": "ESLS",
+        "event_description": "Server listen started",
+        "time": "11.12.2024 16:15:53"
+    },
+    {
+        "event_code": "EUSL",
+        "event_description": "User enter to server successfully",
+        "ip": "192.168.1.101",
+        "port": 41092,
+        "time": "11.12.2024 16:16:00"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "11.12.2024 16:16:40"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "11.12.2024 16:16:42"
+    },
+    {
+        "event_code": "ESLS",
+        "event_description": "Server listen started",
+        "time": "11.12.2024 16:16:44"
+    },
+    {
+        "event_code": "EUSL",
+        "event_description": "User enter to server successfully",
+        "ip": "192.168.1.101",
+        "port": 54292,
+        "time": "11.12.2024 16:16:54"
+    },
+    {
+        "event_code": "EUAF",
+        "event_description": "User request all files",
+        "ip": "192.168.1.101",
+        "port": 54292,
+        "time": "11.12.2024 16:16:56"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "11.12.2024 16:29:43"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "11.12.2024 16:29:46"
+    },
+    {
+        "event_code": "ESLS",
+        "event_description": "Server listen started",
+        "time": "11.12.2024 16:29:48"
+    },
+    {
+        "event_code": "EUSL",
+        "event_description": "User enter to server successfully",
+        "ip": "192.168.1.101",
+        "port": 51946,
+        "time": "11.12.2024 16:29:54"
+    },
+    {
+        "event_code": "EUAF",
+        "event_description": "User request all files",
+        "ip": "192.168.1.101",
+        "port": 51946,
+        "time": "11.12.2024 16:29:59"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "11.12.2024 16:30:13"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "11.12.2024 16:30:15"
+    },
+    {
+        "event_code": "ESLS",
+        "event_description": "Server listen started",
+        "time": "11.12.2024 16:30:17"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "11.12.2024 16:31:01"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "11.12.2024 16:31:03"
+    },
+    {
+        "event_code": "ESLS",
+        "event_description": "Server listen started",
+        "time": "11.12.2024 16:31:05"
+    },
+    {
+        "event_code": "EUSL",
+        "event_description": "User enter to server successfully",
+        "ip": "192.168.1.101",
+        "port": 60682,
+        "time": "11.12.2024 16:31:18"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "11.12.2024 16:37:01"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "11.12.2024 16:37:03"
+    },
+    {
+        "event_code": "ESLS",
+        "event_description": "Server listen started",
+        "time": "11.12.2024 16:37:05"
+    },
+    {
+        "event_code": "EUWP",
+        "event_description": "User enter wrong password",
+        "ip": "192.168.1.101",
+        "port": 49506,
+        "time": "11.12.2024 16:37:19"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "11.12.2024 16:37:44"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "11.12.2024 16:37:44"
+    },
+    {
+        "event_code": "ESLS",
+        "event_description": "Server listen started",
+        "time": "11.12.2024 16:37:48"
+    },
+    {
+        "event_code": "EUSL",
+        "event_description": "User enter to server successfully",
+        "ip": "192.168.1.101",
+        "port": 50770,
+        "time": "11.12.2024 16:37:58"
+    },
+    {
+        "event_code": "EUAF",
+        "event_description": "User request all files",
+        "ip": "192.168.1.101",
+        "port": 50770,
+        "time": "11.12.2024 16:38:00"
     }
 ]

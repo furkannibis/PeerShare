@@ -2,7 +2,6 @@ from fastapi import APIRouter
 from fastapi.responses import JSONResponse
 
 from server.server_socket import Server
-from server.functions import server_week_stat, hourly_user_stat
 from server.model import ServerSocketParameters
 
 server_router = APIRouter()
@@ -19,7 +18,7 @@ async def create_server_socket():
         server_socket = Server()
         return JSONResponse(status_code=server_socket.message['status_code'], content=server_socket.message)
     else:
-        return JSONResponse(status_code=404, content={'message_info': {'message_code': 'E002', 'message': 'The server socket has already been created.'}})
+        return JSONResponse(status_code=409, content={'err_info': {'err_code': 'E000', 'err_desc': 'The server socket has already been created.'}})
     
 @server_router.get('/server/server-status')
 async def server_status():
@@ -47,11 +46,15 @@ async def close_server():
 
 @server_router.get('/server/server-weekly-stat')
 async def server_weekly_stat():
-    return JSONResponse(status_code=200, content=server_week_stat('./server/event/event.json'))
+    global server_socket
+    server_socket.weekly_stat()
+    return JSONResponse(status_code=server_socket.message['status_code'], content=server_socket.message)
 
 @server_router.get('/server/server-daily-stat')
 async def server_daily_stat():
-    return JSONResponse(status_code=200, content=hourly_user_stat('./server/event/event.json'))
+    global server_socket
+    server_socket.hourly_stat()
+    return JSONResponse(status_code=server_socket.message['status_code'], content=server_socket.message)
 
 @server_router.get('/server/connected-devices')
 async def show_devices():

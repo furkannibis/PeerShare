@@ -24,9 +24,13 @@ class Client(socket.socket):
             self.password = password
             self.connect((self.ip, self.port))
             self.send(f'password:{self.password}'.encode())
-            self.recv(1024).decode()
-            self.connected = True
-            self.message = PeerShareClientMessage(status_code=200, status='success', message_code='M001', message='Successfully connected to the server.', wan_ip=wan_ip(), ip=self.ip, port=self.port)
+            message = self.recv(1024).decode()
+            if message == 'Incorrect password.':
+                self.close()
+                self.message = PeerShareClientException(status_code=404, status='failed', err_code='E001', err_desc='The server did not accept the connection for the following reason: "Wrong password!".', wan_ip=wan_ip(), ip=self.ip, port=self.port)
+            elif message == 'Welcome to the server! :)':
+                self.connected = True
+                self.message = PeerShareClientMessage(status_code=200, status='success', message_code='M001', message='Successfully connected to the server.', wan_ip=wan_ip(), ip=self.ip, port=self.port)
 
     def exit_from_server(self):
         if self.connected:
@@ -34,9 +38,10 @@ class Client(socket.socket):
             self.receive_message()
             self.close()
             self.connected = False
-            self.message = PeerShareClientMessage(status_code=200, status='success', message_code='M005', message='The connection to the server was successfully terminated.', wan_ip=wan_ip(), ip=self.ip, port=self.port)
+            self.message = PeerShareClientMessage(status_code=200, status='success', message_code='M002', message='The connection to the server was successfully terminated.', wan_ip=wan_ip(), ip=self.ip, port=self.port)
         else:
-            self.message = PeerShareClientException(status_code=404, status='failed', err_code='E004', err_desc='You are not already connected to a server.', wan_ip=wan_ip(), ip=self.ip, port=self.port)
+            self.message = PeerShareClientException(status_code=404, status='failed', err_code='E002', err_desc='You are not already connected to a server.', wan_ip=wan_ip(), ip=self.ip, port=self.port)
+
     def send_message(self, message: str):
         self.send(message.encode())
 
@@ -48,13 +53,13 @@ class Client(socket.socket):
             self.send_message(message=f'file:{file_name}')
             message = self.receive_message()
             if message == 'No file':
-                self.message = PeerShareClientException(status_code=404, status='failed', err_code='E002', err_desc=f'The file named {file_name} is not found on the server. Please make sure you are requesting the correct file.', wan_ip=wan_ip(), ip=self.ip, port=self.port)
+                self.message = PeerShareClientException(status_code=404, status='failed', err_code='E004', err_desc=f'The file named {file_name} is not found on the server. Please make sure you are requesting the correct file.', wan_ip=wan_ip(), ip=self.ip, port=self.port)
             else:
                 print(message)
                 message = message.split(' - ')
-                self.message = PeerShareClientMessage(status_code=200, status='success', message_code='M002', message=f'The information for the file named {file_name} was successfully retrieved from the server.', wan_ip=wan_ip(), ip=self.ip, port=self.port, file_info={'file_name': message[0], 'file_size': message[1], 'file_type': message[2]})
+                self.message = PeerShareClientMessage(status_code=200, status='success', message_code='M003', message=f'The information for the file named {file_name} was successfully retrieved from the server.', wan_ip=wan_ip(), ip=self.ip, port=self.port, file_info={'file_name': message[0], 'file_size': message[1], 'file_type': message[2]})
         else:
-            self.message = PeerShareClientException(status_code=404, status='failed', err_code='E001', err_desc='There is no connection to any server.', wan_ip=wan_ip(), ip=self.ip, port=self.port)
+            self.message = PeerShareClientException(status_code=404, status='failed', err_code='E003', err_desc='There is no connection to any server.', wan_ip=wan_ip(), ip=self.ip, port=self.port)
 
     def get_files_info(self):
         if self.connected:
@@ -69,9 +74,9 @@ class Client(socket.socket):
                     'file_size': message[1],
                     'file_type': message[2]
                 })
-            self.message = PeerShareClientMessage(status_code=200, status='success', message_code='M003', message='The list of files served by the server was successfully obtained.', wan_ip=wan_ip(), ip=self.ip, port=self.port, files=files)
+            self.message = PeerShareClientMessage(status_code=200, status='success', message_code='M004', message='The list of files served by the server was successfully obtained.', wan_ip=wan_ip(), ip=self.ip, port=self.port, files=files)
         else:
-            self.message = PeerShareClientException(status_code=404, status='failed', err_code='E003', err_desc='To get file information, you must first connect to a server.', wan_ip=wan_ip(), ip=self.ip, port=self.port)
+            self.message = PeerShareClientException(status_code=404, status='failed', err_code='E005', err_desc='To get file information, you must first connect to a server.', wan_ip=wan_ip(), ip=self.ip, port=self.port)
 
     def download_file(self, file_name: str, save_path: str):
         try:
@@ -87,8 +92,7 @@ class Client(socket.socket):
                     while True:
                         data = self.recv(4096)
                         buffer += data
-                        
-                
+
                         if b"[EOF]" in buffer:
                             eof_index = buffer.index(b"[EOF]")
                             file.write(buffer[:eof_index])
@@ -102,7 +106,7 @@ class Client(socket.socket):
             self.message = PeerShareClientMessage(
                 status_code=200,
                 status="success",
-                message_code="M004",
+                message_code="M005",
                 message=f"The file named {file_name} was successfully retrieved from the server.",
                 wan_ip=wan_ip(),
                 ip=self.ip,
