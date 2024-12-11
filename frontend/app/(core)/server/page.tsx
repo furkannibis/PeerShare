@@ -4,8 +4,8 @@ import React, { useState, useEffect } from 'react';
 
 import { TableComp } from '@/components/table';
 
-import { createServerSocket, startServerBind, serverStatus, startServerListen, weeklyStat, dailyStat, connectedDevices, filesInformation } from './functions';
-import { statusProps, weeklyReportProps, dailyReportProps, connectedDevicesProps, filesInformationProps } from './interfaces';
+import { createServerSocket, startServerBind, serverStatus, startServerListen, weeklyStat, dailyStat, connectedDevices, filesInformation, stopServer } from './functions';
+import { statusProps, weeklyReportProps, dailyReportProps, connectedDevicesResponse, filesInformationResponse, stopResponseProps } from './interfaces';
 
 import { BarChart } from '@/components/graph/bar';
 import { LineChart } from '@/components/graph/line';
@@ -25,10 +25,10 @@ export default function ServerPage() {
   const [serverStat, setServerStat] = useState<statusProps | null>(null);
   const [weeklyStatistic, setWeeklyStatistic] = useState<weeklyReportProps | null>(null);
   const [dailyStatistic, setDailyStatistic] = useState<dailyReportProps | null>(null);
-  const [devices, setConnectedDevices] = useState<connectedDevicesProps | null>(null);
-  const [files, setFiles] = useState<filesInformationProps | null>(null);
+  const [devices, setConnectedDevices] = useState<connectedDevicesResponse | null>(null);
+  const [files, setFiles] = useState<filesInformationResponse | null>(null);
 
-  // Create Socket
+
   useEffect(() => {
     const fetchServerSocket = async () => {
       const response = await createServerSocket();
@@ -57,7 +57,7 @@ export default function ServerPage() {
     }
   }
 
-  // Start Bind Mode
+
   const handleStartBind = async () => {
     const response = await startServerBind({ ip: ipInput, port: portInput, password: passwordInput, max_conn_count: maxConnCount });
     if ('err_info' in response) {
@@ -69,7 +69,18 @@ export default function ServerPage() {
     }
   }
 
-  // Start Listen
+  const handleStopServer = async () => {
+    const response = await stopServer();
+    if ('err_info' in response) {
+      setPopupMessage(`Error Code: ${response.err_info.error_code}\nError Description: ${response.err_info.error_desc}`);
+      setIsError(true);
+    } else if ('message_info' in response) {
+      setPopupMessage(`Message Code: ${response.message_info.message_code}\nMessage: ${response.message_info.message}`);
+      setIsError(false);
+    }
+  }
+
+
   const handleStartListen = async () => {
     const response = await startServerListen();
     if ('err_info' in response) {
@@ -81,36 +92,46 @@ export default function ServerPage() {
     }
   }
 
-  // Weekly Statistics
+
   const handleWeeklyStat = async () => {
     const response = await weeklyStat();
-    setPopupMessage(`Weekly statistics updated successfully.`);
+    setPopupMessage(`Message Code: ${response.message_info.message_code}\nMessage: ${response.message_info.message}`);
     setIsError(false);
     setWeeklyStatistic(response);
   }
 
-  // Daily Statistics
+
   const handleDailyStat = async () => {
     const response = await dailyStat();
-    setPopupMessage(`Weekly statistics updated successfully.`);
+    setPopupMessage(`Message Code: ${response.message_info.message_code}\nMessage: ${response.message_info.message}`);
     setIsError(false);
     setDailyStatistic(response);
   }
 
-  // Connected Devices
+
   const handleConnectedDevives = async () => {
     const response = await connectedDevices();
-    setPopupMessage(`Message Code: ${response.message_info.message_code}\nMessage: ${response.message_info.message}`);
-    setIsError(false);
-    setConnectedDevices(response);
+    if ('message_info' in response) {
+      setPopupMessage(`Message Code: ${response.message_info.message_code}\nMessage: ${response.message_info.message}`);
+      setIsError(false);
+      setConnectedDevices(response);
+    } else if ('err_info' in response) {
+      setPopupMessage(`Error Code: ${response.err_info.error_code}\nError Description: ${response.err_info.error_desc}`);
+      setIsError(true);
+    }
   }
 
-  // Files
+
   const handleFiles = async () => {
     const response = await filesInformation();
-    setPopupMessage(`Message Code: ${response.message_info.message_code}\nMessage: ${response.message_info.message}`);
-    setIsError(false);
-    setFiles(response)
+    if ('message_info' in response) {
+      setPopupMessage(`Message Code: ${response.message_info.message_code}\nMessage: ${response.message_info.message}`);
+      setIsError(false);
+      setFiles(response);
+    } else if ('err_info' in response) {
+      setPopupMessage(`Error Code: ${response.err_info.error_code}\nError Description: ${response.err_info.error_desc}`);
+      setIsError(true);
+    }
   }
 
   return (
@@ -180,7 +201,12 @@ export default function ServerPage() {
           >
             Start Listening
           </button>
-          <button className=' w-1/2 mt-5 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700'>Stop Server</button>
+          <button
+            className=' w-1/2 mt-5 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700'
+            onClick={handleStopServer}
+          >
+            Stop Server
+          </button>
         </div>
       </div>
 
@@ -189,14 +215,17 @@ export default function ServerPage() {
         <TableComp
           tableHeader={['IP', 'Port', 'Connection Time', 'Downloaded Size']}
           tableBody={
-            devices?.devices.map((device) => [
-              device.ip,
-              device.port,
-              device.connected_time,
-              device.downloaded_size,
-            ]) || []
+            devices && 'devices' in devices
+              ? devices.devices.map((device) => [
+                device.ip,
+                device.port,
+                device.connected_time,
+                device.downloaded_size,
+              ])
+              : []
           }
         />
+
         <button
           className=' w-1/2 mt-5 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700'
           onClick={handleConnectedDevives}
@@ -210,12 +239,14 @@ export default function ServerPage() {
         <TableComp
           tableHeader={['File Name', 'File Size', 'File Type', 'Number of Downloads']}
           tableBody={
-            files?.files.map(file => [
-              file.file_name,
-              file.file_size,
-              file.file_type,
-              file.downloaded_count,
-            ]) || []
+            files && 'files' in files
+              ? files.files.map(file => [
+                file.file_name,
+                file.file_size,
+                file.file_type,
+                file.downloaded_count,
+              ])
+              : []
           }
         />
         <button
@@ -227,7 +258,7 @@ export default function ServerPage() {
       </div>
 
       <div className='flex flex-col p-5 gap-5'>
-        <BarChart title={'Server\'s Weekly Stats'} conn_inf={weeklyStatistic || {}} />
+        <BarChart title={'Server\'s Weekly Stats'} conn_inf={weeklyStatistic?.weekly_stat || {}} />
         <button
           className='mt-5 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700'
           onClick={handleWeeklyStat}
@@ -237,7 +268,7 @@ export default function ServerPage() {
       </div>
 
       <div className='flex flex-col p-5 gap-5'>
-        <LineChart title={'Statistics of the number of connections per hour to the server.'} conn_inf={dailyStatistic || {}} />
+        <LineChart title={'Statistics of the number of connections per hour to the server.'} conn_inf={dailyStatistic?.hourly_stat || {}} />
         <button
           className='mt-5 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700'
           onClick={handleDailyStat}

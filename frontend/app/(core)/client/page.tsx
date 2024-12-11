@@ -4,15 +4,15 @@ import React, { useState, useEffect } from 'react';
 
 import { TableComp } from '@/components/table';
 
-import { createClientSocket } from './function';
+import { createClientSocket, exitServer } from './function';
 
 import { connectServer } from './function';
-import { connectServerProps } from './interfaces';
+import { connectServerResponse } from './interfaces';
 
 import { serverStat } from './function';
 
 import { getServerFiles } from './function';
-import { serverFilesProps } from './interfaces';
+import { serverFilesResponse } from './interfaces';
 
 import { downloadFile } from './function';
 
@@ -27,8 +27,8 @@ export default function ClientPage() {
     const [popupVisible, setPopupVisible] = useState(false);
     const [isError, setIsError] = useState<boolean>(false);
 
-    const [serverStats, setServerStats] = useState<connectServerProps | null>(null);
-    const [serverFiles, setServerFiles] = useState<serverFilesProps | null>(null);
+    const [serverStats, setServerStats] = useState<connectServerResponse | null>(null);
+    const [serverFiles, setServerFiles] = useState<serverFilesResponse | null>(null);
 
     const [loadingFile, setLoadingFile] = useState<string | null>(null);
 
@@ -59,6 +59,9 @@ export default function ClientPage() {
         if ('message_info' in response) {
             setPopupMessage(`Message Code: ${response.message_info.message_code}\nMessage: ${response.message_info.message}`);
             setIsError(false);
+        } else if ('err_info' in response) {
+            setPopupMessage(`Error Code: ${response.err_info.error_code}\nError Description: ${response.err_info.error_desc}`);
+            setIsError(true);
         }
     }
 
@@ -75,9 +78,14 @@ export default function ClientPage() {
     // Shared files
     const handleSharedFiles = async () => {
         const response = await getServerFiles();
-        setServerFiles(response);
-        setPopupMessage(`Message Code: ${response.message_info.message_code}\nMessage: ${response.message_info.message}`);
-        setIsError(false);
+        if ('message_info' in response) {
+            setServerFiles(response)
+            setPopupMessage(`Message Code: ${response.message_info.message_code}\nMessage: ${response.message_info.message}`);
+            setIsError(false);
+        } else if ('err_info' in response) {
+            setPopupMessage(`Error Code: ${response.err_info.error_code}\nError Description: ${response.err_info.error_desc}`);
+            setIsError(true);
+        }
 
     }
 
@@ -100,6 +108,18 @@ export default function ClientPage() {
         setLoadingFile(null);
         setPopupMessage(`Message Code: ${response.message_info.message_code}\nMessage: ${response.message_info.message}`);
         setIsError(false);
+    }
+
+    const handleExitServer = async () => {
+        const response = await exitServer();
+        if ('message_info' in response) {
+            setPopupMessage(`Message Code: ${response.message_info.message_code}\nMessage: ${response.message_info.message}`);
+            setIsError(false);
+        } else if ('err_info' in response) {
+            setPopupMessage(`Error Code: ${response.err_info.error_code}\nError Description: ${response.err_info.error_desc}`);
+            setIsError(true);
+        }
+
     }
 
 
@@ -137,7 +157,7 @@ export default function ClientPage() {
                     </button>
                     <button
                         className='mt-5 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700'
-                        onClick={undefined}
+                        onClick={handleExitServer}
                     >
                         Exit Server
                     </button>
@@ -148,7 +168,7 @@ export default function ClientPage() {
             <div className='flex flex-col items-center p-5 gap-5'>
                 <h2>Connection Stats</h2>
                 <TableComp
-                    tableHeader={['LAN IP', 'Port']}
+                    tableHeader={['IP', 'Port']}
                     tableBody={serverStats ? [
                         [
                             serverStats?.server_info.ip || 'N/A',
@@ -170,20 +190,23 @@ export default function ClientPage() {
                 <TableComp
                     tableHeader={['File Name', 'File Type', 'File Size', '']}
                     tableBody={
-                        serverFiles?.files.map(file => [
-                            file.file_name,
-                            file.file_type,
-                            file.file_size,
-                            <button
-                                key={file.file_name}
-                                onClick={() => handleDownloadFile(file.file_name)}
-                                className='text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700'
-                            >
-                                Download
-                            </button>
-                        ]) || []
+                        serverFiles && 'files' in serverFiles
+                            ? serverFiles.files.map(file => [
+                                file.file_name,
+                                file.file_type,
+                                file.file_size,
+                                <button
+                                    key={file.file_name}
+                                    onClick={() => handleDownloadFile(file.file_name)}
+                                    className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+                                >
+                                    Download
+                                </button>,
+                            ])
+                            : []
                     }
                 />
+
 
                 <button
                     className='mt-5 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700'

@@ -5,8 +5,8 @@ import { stopResponseProps } from "./interfaces";
 import { weeklyReportProps } from "./interfaces";
 import { dailyReportProps } from "./interfaces";
 import { statusProps } from "./interfaces";
-import { connectedDevicesProps } from "./interfaces";
-import { filesInformationProps } from "./interfaces";
+import { connectedDevicesResponse } from "./interfaces";
+import { filesInformationResponse } from "./interfaces";
 
 export async function createServerSocket(): Promise<createSocketProps> {
     const response = await fetch('http://localhost:8000/server/create-socket');
@@ -62,14 +62,14 @@ export async function serverStatus(): Promise<statusProps> {
     return data as statusProps;
 }
 
-export async function connectedDevices(): Promise<connectedDevicesProps> {
+export async function connectedDevices(): Promise<connectedDevicesResponse> {
     const response = await fetch('http://127.0.0.1:8000/server/connected-devices');
     const data = await response.json();
-    return data as connectedDevicesProps;
+    return data as connectedDevicesResponse;
 }
 
-export async function filesInformation(): Promise<filesInformationProps> {
+export async function filesInformation(): Promise<filesInformationResponse> {
     const response = await fetch('http://127.0.0.1:8000/server/shared-files');
     const data = await response.json();
-    return data as filesInformationProps;
+    return data as filesInformationResponse;
 }

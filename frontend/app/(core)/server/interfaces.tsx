@@ -89,11 +89,19 @@ interface stopExceptionProps {
 export type stopResponseProps = stopMessageProps | stopExceptionProps
 
 export interface weeklyReportProps {
-    [date: string]: number
+    status: string
+    message_info: messageInfoProps
+    server_info: serverInfoProps
+    server_status: serverStatusProps
+    weekly_stat: Record<string, number>
 }
 
 export interface dailyReportProps {
-    [key: string]: number
+    status: string
+    message_info: messageInfoProps
+    server_info: serverInfoProps
+    server_status: serverStatusProps
+    hourly_stat: Record<string, number>
 }
 
 export interface statusProps {
@@ -111,7 +119,7 @@ interface devicesProps {
     downloaded_size: number
 }
 
-export interface connectedDevicesProps {
+interface connectedDevicesProps {
     status_code: number
     status: string
     message_info: messageInfoProps
@@ -120,6 +128,16 @@ export interface connectedDevicesProps {
     devices: devicesProps[]
 }
 
+interface connectedDevicesExceptionProps {
+    status_code: number
+    status: string
+    err_info: errorInfoProps
+    server_info: serverInfoProps
+    server_status: serverStatusProps
+}
+
+export type connectedDevicesResponse = connectedDevicesProps | connectedDevicesExceptionProps
+
 interface filesProps {
     file_name: string
     file_size: number
@@ -127,7 +145,7 @@ interface filesProps {
     downloaded_count: number
 }
 
-export interface filesInformationProps {
+interface filesInformationProps {
     status_code: number
     status: string
     message_info: messageInfoProps
@@ -135,3 +153,13 @@ export interface filesInformationProps {
     server_status: serverStatusProps
     files: filesProps[]
 }
+
+interface filesInformationExceptionProps {
+    status_code: number
+    status: string
+    err_info: errorInfoProps
+    server_info: serverInfoProps
+    server_status: serverStatusProps
+}
+
+export type filesInformationResponse = filesInformationProps | filesInformationExceptionProps

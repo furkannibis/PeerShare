@@ -9,6 +9,12 @@ interface serverInfoProps {
     port: number | null
 }
 
+interface errorInfoProps {
+    error_code: string
+    error_desc: string
+}
+
+
 export interface createSocketProps {
     status_code: number
     status: string
@@ -22,12 +28,21 @@ export interface connectServerInputProps {
     password: string
 }
 
-export interface connectServerProps {
+interface connectServerProps {
     status_code: number
     status: string
     message_info: messageInfoProps
     server_info: serverInfoProps
 }
+
+interface connectServerExceptionProps {
+    status_code: number
+    status: string
+    err_info: errorInfoProps
+    server_info: serverInfoProps
+}
+
+export type connectServerResponse = connectServerProps | connectServerExceptionProps
 
 interface files {
     file_name: string
@@ -35,13 +50,22 @@ interface files {
     file_size: string
 }
 
-export interface serverFilesProps {
+interface serverFilesProps {
     status_code: number
     status: string
     message_info: messageInfoProps
     server_info: serverInfoProps
     files: files[]
 }
+
+interface serverFilesExceptionProps {
+    status_code: number
+    status: string
+    err_info: errorInfoProps
+    server_info: serverInfoProps
+}
+
+export type serverFilesResponse = serverFilesProps | serverFilesExceptionProps
 
 export interface downloadFileInputProps {
     file_name: string
@@ -54,12 +78,22 @@ export interface downloadFileProps {
     server_info: serverInfoProps
 }
 
-export interface exitServerProps {
+interface exitServerProps {
     status_code: number
     status: string
     message_info: messageInfoProps
     server_info: serverInfoProps
 }
+
+interface exitServerExceptionProps {
+    status_code: number
+    status: string
+    err_info: errorInfoProps
+    server_info: serverInfoProps
+}
+
+export type exitServerResponse = exitServerProps | exitServerExceptionProps
+
 
 export interface serverStatProps {
     status_code: number
