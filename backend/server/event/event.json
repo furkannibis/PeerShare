@@ -1909,5 +1909,45 @@
         "ip": "192.168.1.101",
         "port": 50770,
         "time": "11.12.2024 16:38:00"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "12.12.2024 10:24:31"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "12.12.2024 10:24:47"
+    },
+    {
+        "event_code": "ESLS",
+        "event_description": "Server listen started",
+        "time": "12.12.2024 10:24:52"
+    },
+    {
+        "event_code": "ESC",
+        "event_description": "Server closed",
+        "time": "12.12.2024 10:25:18"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "12.12.2024 10:25:35"
+    },
+    {
+        "event_code": "ESBS",
+        "event_description": "Server bind started",
+        "time": "12.12.2024 10:25:41"
+    },
+    {
+        "event_code": "ESLS",
+        "event_description": "Server listen started",
+        "time": "12.12.2024 10:25:42"
+    },
+    {
+        "event_code": "ECSS",
+        "event_description": "Server socket created",
+        "time": "12.12.2024 11:23:56"
     }
 ]

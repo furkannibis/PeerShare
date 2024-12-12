@@ -58,7 +58,7 @@ export default function Home() {
           Connect Client
         </Link>
         <Link
-          href="/docs"
+          href="/documents"
           className="bg-gray-600 text-white font-medium rounded-lg px-6 py-3 transition hover:bg-gray-700 focus:ring-4 focus:ring-gray-300"
         >
           Learn More
@@ -66,7 +66,7 @@ export default function Home() {
       </div>
 
       {/* Dönen SVG */}
-      <div className="absolute bottom-[-102%] left-0 w-full h-auto flex justify-center items-center animate-spinSlow opacity-15 z-0 pointer-events-none">
+      <div className="absolute bottom-[-102%] left-0 w-full h-auto flex justify-center items-center animate-spinSlow opacity-35 z-0 pointer-events-none">
         <svg
           id="_50._Save_Earth"
           data-name="50. Save Earth"
